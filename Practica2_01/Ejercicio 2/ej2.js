@@ -1,10 +1,12 @@
+"use strict";
+
 // Guardo los puntos de los equipos.
 let equipoJuan = [89,120,103];
 let equipoMiguel = [116,94,123];
 let equipoMaria = [97,134,105];
 
 // Función para calcular la puntuación media de un equipo.
-function calcularPuntuacionMediaEquipos(equipo){
+function calcularPuntuacionMediaEquipos(equipo=[1,1,1]){
     let puntuacionMedia = 0;
     for(let i=0; i<equipo.length;i++){
         puntuacionMedia += equipo[i];
