@@ -24,7 +24,7 @@ function calcularPropinas(facturas){
         cantidadesFinales[i] = factura + propina;
 
         // Redondeamos los precios a 2 decimales.
-        console.log(`El restaurante ${i+1} con factura de ${factura} $ tendrá una propina de ${propina.toFixed(2)} $. El precio final será: ${cantidadesFinales[i].toFixed(2)} $.`);
+        return `El restaurante ${i+1} con factura de ${factura} $ tendrá una propina de ${propina.toFixed(2)} $. El precio final será: ${cantidadesFinales[i].toFixed(2)} $.`;
     }
 }
 
