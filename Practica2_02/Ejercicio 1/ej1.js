@@ -23,11 +23,8 @@ function sumaNumeros(){
         esValido = false;
     }
 
-    // Si la función no es válida saltará el mensaje de error correspondiente.
-    if(esValido)
-        return `La suma de todos los números es ${suma}.`;
-    else
-        return mensajeError;
+    // Si la función no es válida saltará el mensaje de error correspondiente.  
+    return `${esValido ? `La suma de todos los números es ${suma}.` : `${mensajeError}`}`;
 }
 
 console.log(sumaNumeros(1,2,3)); // 6.
