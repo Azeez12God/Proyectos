@@ -2,12 +2,17 @@
 
 // Función que genera números aleatorios según la cantidad pasada y los guarda en un array.
 function generaNumeros(cantidadNumeros){
-    let numerosAleatorios = [];
+    if(!isNaN(cantidadNumeros)){
+        let numerosAleatorios = [];
 
-    for(let i=0;i<cantidadNumeros;i++)
-        numerosAleatorios[i] = Math.floor((Math.random()*100+1)); // Genera un número del 1 al 100.
+        for(let i=0;i<cantidadNumeros;i++)
+            numerosAleatorios[i] = Math.floor((Math.random()*100+1)); // Genera un número del 1 al 100.
 
-    return numerosAleatorios;
+        return numerosAleatorios;
+    }
+
+    else
+        return `Ha ocurrido un error con la cantidad de números generados. El parámetro no es un número.`;
 }
 
 // Función que suma las posiciones contrarias de 2 arrays mientras tengan la misma longitud.
@@ -39,10 +44,9 @@ function imprimeArray(arrayImprimir){
 }
 
 function calcular(funcionGenerar,funcionSumar,funcionImprimir){
-    let primerArray = funcionGenerar(5); // Caso de prueba.
+    let primerArray = funcionGenerar(5);
     let segundoArray = funcionGenerar(5);
-    let arraySuma = funcionSumar(primerArray,segundoArray);
-    return funcionImprimir(arraySuma);
+    return funcionImprimir(funcionSumar(primerArray,segundoArray));
 }
-
+// Casos de prueba.
 console.log(calcular(generaNumeros,sumaArrays,imprimeArray));

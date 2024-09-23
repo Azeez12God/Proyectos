@@ -24,3 +24,19 @@ function muestraCurso(curso){
     return informe;    
 }
 
+let discente = {
+    id: 1,
+    nombre: "Feo",
+    apellidos: "De Verdad",
+    aficiones: ["Dibujar","Videojuegos","Deportes"],
+    notas: {
+        primera: 7,
+        segunda: 6,
+        tercera: 8,
+    },
+};
+
+function calcularMedia(discente){
+    let media = (discente.notas.primera+discente.notas.segunda+discente.notas.tercera)/3;
+    return media;
+}
