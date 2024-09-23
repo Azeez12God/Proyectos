@@ -1,5 +1,6 @@
 "use strict";
 
+// Función que calcula todas las multiplicaciones de una tabla según el número.
 function multiplicar(num){
     let lineaTabla = '';
     for(let i=0;i<=10;i++)
@@ -8,6 +9,7 @@ function multiplicar(num){
     return lineaTabla;
 }
 
+// Función que calcula todas las tablas del número pasado como parámetro con la función multiplicar.
 function tablas(num,funcion){
     let tablasEnteras = '';
 
@@ -20,4 +22,4 @@ function tablas(num,funcion){
     return tablasEnteras;
 }
 
-console.log(tablas(5,multiplicar));
+console.log(tablas(5,multiplicar)); // Caso de prueba.
