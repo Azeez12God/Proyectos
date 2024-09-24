@@ -17,9 +17,9 @@ function muestraCurso(curso){
     let informe = ``;
     for(let propiedad in curso){
         if(curso.hasOwnProperty(propiedad)) // Para comprobar si efectivamente la propiedad pertenece al objeto. 
-            informe += `Propiedad: ${propiedad} - Valor: ${curso[propiedad]} \n`;
+            informe += `Propiedad del curso: ${propiedad} - Valor: ${curso[propiedad]} \n`;
         else
-            informe = `Ha habido un problema con una propiedad.`;
+            informe = `Ha habido un problema con la propiedad ${propiedad} en curso.`;
     }
     return informe;    
 }
@@ -34,9 +34,33 @@ let discente = {
         segunda: 6,
         tercera: 8,
     },
+    // Método que calcula la media de las tres evaluaciones.
+    calcularMedia: function(){
+        let media = Math.floor(discente.notas.primera+discente.notas.segunda+discente.notas.tercera)/3; // Redondea la media.
+        return `La nota media de las evaluaciones es: ${media}`;
+    },
+    // Método que imprime las aficiones debidamente formateadas.
+    imprimirAficiones: function(){
+        let aficiones = '';
+        for(let i=0;i<discente.aficiones.length;i++)
+            aficiones += `Afición ${i+1}: ${discente.aficiones[i]} \n`;
+        return aficiones;
+    },
+    // Método que imprime todas las propiedades del objeto.
+    imprimirInforme: function(){
+        let informe = ``;
+        for(let propiedad in discente){
+            if(discente.hasOwnProperty(propiedad))
+                informe += `Propiedad de discente: ${propiedad} - Valor: ${discente[propiedad]} \n`;
+            else
+                informe += `Ha habido un problema con la propiedad ${propiedad} en discente.`;
+        }
+
+        return informe;
+    },
 };
 
-function calcularMedia(discente){
-    let media = (discente.notas.primera+discente.notas.segunda+discente.notas.tercera)/3;
-    return media;
-}
+// Casos de prueba
+console.log(discente.calcularMedia(discente));
+console.log(discente.imprimirAficiones(discente));
+console.log(discente.imprimirInforme(discente))

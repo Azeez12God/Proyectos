@@ -19,7 +19,7 @@ function muestraCurso(curso){
         if(curso.hasOwnProperty(propiedad)) // Para comprobar si efectivamente la propiedad pertenece al objeto. 
             informe += `Propiedad: ${propiedad} - Valor: ${curso[propiedad]} \n`;
         else
-            informe = `Ha habido un problema con una propiedad.`;
+            informe = `Ha habido un problema con la propiedad ${propiedad}.`;
     }
     return informe;    
 }
