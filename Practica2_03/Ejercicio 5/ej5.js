@@ -25,7 +25,7 @@ function muestraCurso(curso){
         if(curso.hasOwnProperty(propiedad)) // Para comprobar si efectivamente la propiedad pertenece al objeto. 
             informe += `Propiedad del curso: ${propiedad} - Valor: ${curso[propiedad]} \n`;
         else
-            informe = `Ha habido un problema con la propiedad ${propiedad} en curso.`;
+            informe = `Ha habido un problema con la propiedad ${propiedad} en curso. \n`;
     }
     return informe;    
 }
@@ -66,4 +66,48 @@ let discente = {
     },
 };
 
-console.log(curso.matricular(discente));
+// Función que comprueba si el tipo de la propiedad es un OBJETO.
+function compruebaObjeto(propiedadObjeto){
+    return (typeof propiedadObjeto === 'object') ? true : false;
+}
+
+// Función que comprueba si el tipo de la propiedad es una FUNCIÓN.
+function compruebaFuncion(propiedadObjeto){
+    return (typeof propiedadObjeto === 'function') ? true : false;
+}
+
+// Función que comprueba si el tipo de la propiedad es un ARRAY.
+function compruebaArray(propiedadObjeto){
+    return (Array.isArray(propiedadObjeto)) ? true : false;
+}
+
+// Función que imprime un informe completo de cualquier objeto.
+function imprimeObjeto(objeto){
+    let informe = ``;
+    for(let propiedad in objeto){
+        let valor = objeto[propiedad];
+        if(objeto.hasOwnProperty(propiedad)){ // Para comprobar si efectivamente la propiedad pertenece al objeto.
+            // Si es array devuelve los elementos de ese array.
+            if(compruebaArray(valor)){
+                informe += `Propiedad del objeto: ${propiedad} - Es un array. Contiene: \n`;
+                for(let i = 0; i < valor.length; i++)
+                    informe += `  Elemento ${i + 1}: ${valor[i]} \n`;
+                
+            }
+            // SI es objeto o función simplemente informa qué son.
+            else if(compruebaFuncion(valor))
+                informe += `Propiedad del objeto: ${propiedad} - Es una función. \n`;
+            else if(compruebaObjeto(valor))
+                informe += `Propiedad del objeto: ${propiedad} - Es un objeto. \n`;
+            else
+                informe += `Propiedad del objeto: ${propiedad} - Valor: ${valor} \n`;
+        }
+        else
+            informe = `Ha habido un problema con la propiedad ${propiedad} en el objeto. \n`;
+    }
+    return informe;  
+}
+
+//Casos de prueba
+console.log(imprimeObjeto(curso));
+console.log(imprimeObjeto(discente));
