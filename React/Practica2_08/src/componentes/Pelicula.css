@@ -1,0 +1,27 @@
+#contenedor-contenedor {
+    width: 50%;
+    border: 1px solid red;
+    padding: 5%;
+}
+
+.pelicula-cartelera{
+    width: 30%;
+    border: 1px solid purple;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.cartelera-caratula{
+    width: 100%;
+}
+
+.pelicula-resumen{
+    border: 1px solid black;
+}
+
+.pelicula-elenco{
+    border: 1px solid cyan;
+    width: 99%;
+    padding: 10px;
+}

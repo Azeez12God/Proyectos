@@ -1,3 +1,5 @@
+import "./Pelicula.css";
+
 const Pelicula = (props) => {
     const{nombre, director, cartelera, children,actores} = props;
 
@@ -16,12 +18,12 @@ const Pelicula = (props) => {
                 </div>
                 <div className="pelicula-resumen">{children}</div>
                 <div className="pelicula-elenco">
-                    {actores.map((actor, index) => (
-                        <div key={index} className="elenco-actor">
+                    {actores.map((actor, indice) => (
+                        <div className="elenco-actor" key={indice}>
                             <img
                                 alt={`Imagen de ${actor.nombre}`}
                                 src={actor.imagen}
-                                className="interprete-imagen"
+                                className="actor-imagen"
                             />
                             <h3>{actor.nombre}</h3>
                             <p>{actor.biografia}</p>
