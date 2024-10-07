@@ -9,14 +9,17 @@ const Pelicula = (props) => {
                 <h1 className="pelicula-titulo">{nombre}</h1>
                 <h2 className="pelicula-director">{director}</h2>
 
-                <div className="pelicula-cartelera">
-                    <img
-                        alt="Carátula de la película"
-                        src={cartelera}
-                        className="cartelera-caratula"
-                    />
+                <div className="pelicula-contenedor">
+                    <div className="pelicula-cartelera">
+                        <img
+                            alt="Carátula de la película"
+                            src={cartelera}
+                            className="cartelera-caratula"
+                        />
+                    </div>
+                    <div className="pelicula-resumen">{children}</div>
                 </div>
-                <div className="pelicula-resumen">{children}</div>
+
                 <div className="pelicula-elenco">
                     {actores.map((actor, indice) => (
                         <div className="elenco-actor" key={indice}>

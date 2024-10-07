@@ -2,6 +2,12 @@
     width: 50%;
     border: 1px solid red;
     padding: 5%;
+    margin-bottom: 10px;
+}
+
+.pelicula-contenedor{
+    display: flex;
+    gap: 10px;
 }
 
 .pelicula-cartelera{
@@ -10,18 +16,22 @@
     display: flex;
     justify-content: center;
     box-sizing: border-box;
+    flex: 1;
+}
+
+.pelicula-resumen{
+    border: 1px solid black;
+    float: left;
+    flex: 2;
 }
 
 .cartelera-caratula{
     width: 100%;
 }
 
-.pelicula-resumen{
-    border: 1px solid black;
-}
-
 .pelicula-elenco{
     border: 1px solid cyan;
-    width: 99%;
+    width: 98%;
     padding: 10px;
+    margin-top: 20px;
 }
