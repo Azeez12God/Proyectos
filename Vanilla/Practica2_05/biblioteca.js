@@ -29,4 +29,28 @@ function toCani(texto){
 
     return resultado;
 }
-export {toCani};
+
+function temporizador(minutos, segundos) {
+    // Validación básica de los parámetros
+    if (segundos === undefined) {
+        segundos = minutos;
+        minutos = 0;
+    }
+
+    // Convertir a segundos totales
+    let tiempoTotal = minutos * 60 + segundos;
+    const mostrarTiempo = setInterval(()=>{
+        // Función para mostrar el tiempo formateado  
+        let min = Math.floor(tiempoTotal / 60);
+        let seg = tiempoTotal % 60;
+        tiempoTotal--;
+        console.log(`Quedan ${min} minutos y ${seg} segundos.`);
+    }, 1000);
+
+    const terminarTiempo = setTimeout(()=>{
+        clearInterval(mostrarTiempo);
+        console.log(`¡TIEMPO ACABADO!`);
+    }, (tiempoTotal*1000)+999);
+}
+
+export {toCani, temporizador};
