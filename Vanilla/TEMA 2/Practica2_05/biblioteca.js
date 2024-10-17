@@ -53,4 +53,12 @@ function temporizador(minutos, segundos) {
     }, (tiempoTotal*1000)+999);
 }
 
-export {toCani, temporizador};
+function calculaLetraDNI(numeroDNI){
+    const letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 
+                    'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'];
+    let letra = letras[dni % 23];
+
+    return `DNI: ${numeroDNI}, Letra: ${letra}.`;
+}
+
+export {toCani, temporizador, calculaLetraDNI};
