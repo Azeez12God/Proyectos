@@ -1,0 +1,13 @@
+.primo{
+    background-color: red;
+    font-weight: bold;
+}
+table{
+    border: 1px solid black;
+    width: 300px;
+}
+
+td{
+    border: 1px solid black;
+    width: 20px;
+}

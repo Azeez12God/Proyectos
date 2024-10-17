@@ -28,4 +28,40 @@ function crearTablaDinamica(numFilas,numColumnas){
     document.body.appendChild(tabla); // Metemos la tabla con sus filas y columnas en el documento.
 }
 
-export {bloquearContenidoInapropiado, crearTablaDinamica};
+function esPrimo(numero) {
+    let esprimo = numero > 1; // Asumimos que es primo si es mayor que 1
+
+    // Verificar si el número es divisible por algún número desde 2 hasta la raíz cuadrada del número
+    for (let i = 2; i <= Math.sqrt(numero); i++) {
+        if (numero % i === 0) {
+            esprimo = false; // No es primo si es divisible por otro número
+            break; // Salimos del bucle si encontramos un divisor
+        }
+    }
+
+    return esprimo; // Devolvemos el resultado final
+}
+
+// Función que genera un número del 0 al número pasado por parámetro.
+function generarNumeroAleatorio(max) {
+    let resultado;
+    if (typeof max !== 'number' || max <= 0) 
+        resultado = 'El parámetro debe ser un número mayor que 0.';   
+    else
+        resultado = Math.floor(Math.random() * max);
+    
+    return resultado;
+}
+
+// Función para generar un color aleatorio en formato hexadecimal
+function generarColorAleatorio() {
+    const letras = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letras[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+
+export {bloquearContenidoInapropiado, crearTablaDinamica, esPrimo, generarNumeroAleatorio, generarColorAleatorio};
