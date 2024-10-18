@@ -17,7 +17,7 @@ const idTimeOut = setTimeout(() => {
   const info = document.getElementById("info");
   info.innerHTML += `<p>Se han encontrado <strong>${parrafos.length}</strong> parrafos en el documento.</p>`;
   info.innerHTML += `<p>El contendio del segundo párrafo es:${
-    segundoParrafo?.innerHTML
+    segundoParrafo?.innerHTML // Comprobar si efectivamente hay segundo párrafo.
       ? segundoParrafo.innerHTML
       : "No hay segundo párrafo."
   }.</p>`;

@@ -11,7 +11,7 @@ const idIntervalo = setInterval(()=>{
         clearInterval(idIntervalo);
         console.log(`Fin del programa. Lista de DNI con sus letras:`);
         numerosDNI.forEach(dni => {
-            console.log(calculaLetraDNI(dni)); 
+            console.log(`${dni}${calculaLetraDNI(dni)}`); 
         })
     }
     else if(numeroDNI !== null && numeroDNI.length === 8 && !isNaN(numeroDNI)){
