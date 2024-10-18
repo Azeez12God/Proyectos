@@ -35,3 +35,21 @@
     padding: 10px;
     margin-top: 20px;
 }
+
+.taquilla-contenedor{
+    border: solid red;
+    width: auto;
+    height: 20px;
+}
+
+.taquilla-recaudacion{
+    color: red;
+}
+
+.esconder{
+    display: none;
+}
+
+.mostrar{
+    display: block;
+}

@@ -16,6 +16,7 @@ const Peliculas = () => {
                         director={pelicula.director}
                         cartelera={pelicula.cartelera}
                         actores={pelicula.actores}
+                        recaudacion={pelicula.recaudacion}
                         >
                             {pelicula.resumen}
                         </Pelicula>

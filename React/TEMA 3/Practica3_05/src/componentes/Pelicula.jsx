@@ -1,7 +1,13 @@
+import { useRef } from "react";
 import "./Pelicula.css";
 
 const Pelicula = (props) => {
-    const{nombre, director, cartelera, children,actores} = props;
+    const{nombre, director, cartelera, children,recaudacion,actores} = props;
+    const elencoRef = useRef(null);
+    const taquillaRef = useRef(null);
+    const mostrarInformacion = (referencia) => {
+        referencia.current.classList.toggle("mostrar");
+    };
 
     return(
         <>
@@ -20,7 +26,27 @@ const Pelicula = (props) => {
                     <div className="pelicula-resumen">{children}</div>
                 </div>
 
-                <div className="pelicula-elenco">
+                <div className="pelicula-botones">
+                    <button
+                        onClick={()=>{
+                            mostrarInformacion(elencoRef);
+                        }}
+                    >
+                        Elenco
+                    </button>
+                    <button
+                        onClick={()=>{
+                            mostrarInformacion(taquillaRef);
+                        }}
+                    >
+                        Taquilla
+                    </button>
+                    <div className="taquilla-contenedor, esconder" ref={taquillaRef}>
+                        <p className="taquilla-recaudacion">{recaudacion}</p>
+                    </div>
+                </div>
+
+                <div className="pelicula-elenco, esconder" ref={elencoRef}>
                     {actores.map((actor, indice) => (
                         <div className="elenco-actor" key={indice}>
                             <img
