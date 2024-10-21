@@ -3,10 +3,12 @@ import "./Pelicula.css";
 
 const Pelicula = (props) => {
     const{nombre, director, cartelera, children,recaudacion,actores} = props;
+    // Usamos dos referencias para apuntar a los distintos elementos.
     const elencoRef = useRef(null);
     const taquillaRef = useRef(null);
+    // Declaramos la función que va quitando y poniendo la clase "esconder" para mostrar los elementos.
     const mostrarInformacion = (referencia) => {
-        referencia.current.classList.toggle("mostrar");
+        referencia.current.classList.toggle("esconder");
     };
 
     return(
@@ -41,12 +43,10 @@ const Pelicula = (props) => {
                     >
                         Taquilla
                     </button>
-                    <div className="taquilla-contenedor, esconder" ref={taquillaRef}>
-                        <p className="taquilla-recaudacion">{recaudacion}</p>
-                    </div>
+                    <p className="taquilla-recaudacion esconder" ref={taquillaRef}>{recaudacion} de €</p>
                 </div>
 
-                <div className="pelicula-elenco, esconder" ref={elencoRef}>
+                <div className="pelicula-elenco esconder" ref={elencoRef}>
                     {actores.map((actor, indice) => (
                         <div className="elenco-actor" key={indice}>
                             <img

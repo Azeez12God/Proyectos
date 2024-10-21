@@ -36,20 +36,18 @@
     margin-top: 20px;
 }
 
-.taquilla-contenedor{
-    border: solid red;
-    width: auto;
-    height: 20px;
+.pelicula-botones{
+    display: flex;
 }
 
 .taquilla-recaudacion{
     color: red;
+    text-align: right;
+    border: solid red;
+    flex: 3;
+    margin-left: 125px;
 }
 
 .esconder{
     display: none;
-}
-
-.mostrar{
-    display: block;
 }
