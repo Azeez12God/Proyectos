@@ -1,11 +1,11 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const AcercaDe = () => {
-  const navegar = useNavigate();
+const Error = () => {
+    const navegar = useNavigate();
   return (
     <>
-        <h2>Este es la información de los desarrolladores.</h2>
+        <h1>¡Ups! Se ha producido un error. Por favor vuelva a intentarlo.</h1>
         <button
           onClick={()=>{
             navegar("/");
@@ -17,4 +17,4 @@ const AcercaDe = () => {
   )
 }
 
-export default AcercaDe
+export default Error
