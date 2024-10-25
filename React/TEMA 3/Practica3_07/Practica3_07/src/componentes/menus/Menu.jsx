@@ -5,7 +5,6 @@ import "./Menu.css"
 const Menu = () => {
   return (
     <>
-        <nav>
             <Link className='menu-elemento' to='/'>
                 Inicio
             </Link>
@@ -21,7 +20,6 @@ const Menu = () => {
             <Link className='menu-elemento' to='/acerca-de'>
                 Acerca de
             </Link>
-        </nav>
     </>
   )
 }

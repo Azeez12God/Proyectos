@@ -1,13 +1,13 @@
 import './App.css'
-import Menu from './componentes/Menu.jsx';
-import Rutas from './componentes/Rutas.jsx';
+import Cabecera from './componentes/Cabecera.jsx'
+import Rutas from './componentes/menus/Rutas.jsx'
 
 function App() {
 
   return (
     <>
-    <Menu/>
-    <Rutas/>
+      <Cabecera/>
+      <Rutas/>
     </>
   )
 }
