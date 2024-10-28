@@ -1,0 +1,14 @@
+.elementomenu{
+    display: inline;
+    margin: 10px;
+    padding: 10px;
+    border: solid rgb(0, 0, 0) 1px;
+    color: rgb(0, 0, 0);
+    margin: 20px;
+}
+
+.elementomenu:hover{
+    background-color: rgb(0, 0, 0);
+    color:rgb(255, 255, 255);
+    cursor: pointer;
+}
