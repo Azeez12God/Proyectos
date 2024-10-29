@@ -9,7 +9,12 @@ function App() {
 
   return (
     <>
-      <Contenedor/>
+      <Contenedor>
+        <Cabecera/>
+        <Menu/>
+        <Contenido/>
+        <Pie/>
+      </Contenedor>
     </>
   )
 }
