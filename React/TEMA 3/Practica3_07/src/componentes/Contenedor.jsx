@@ -9,10 +9,7 @@ const Contenedor = () => {
   return (
     <>
         <div className='contenedor-contenedor'>
-            <Cabecera/>
-            <Menu/>
-            <Contenido/>
-            <Pie/>
+            
         </div>
     </>
   )

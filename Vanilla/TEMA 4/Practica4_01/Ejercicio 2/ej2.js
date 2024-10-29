@@ -1,11 +1,9 @@
-"use strict"
+    "use strict"
 
-import { generarColorAleatorio } from "../Biblioteca/biblioteca.js";
+    import { generarColorAleatorio } from "../Biblioteca/biblioteca.js";
 
-window.onload = ()=>{
-
-    document.body.addEventListener("click",(evento)=>{
-        navegador.style.backgroundColor = generarColorAleatorio();
-        console.log("hola");
-    }, false);
-};
+    window.onload = ()=>{
+        document.addEventListener("click",(evento)=>{
+            document.body.style.backgroundColor = generarColorAleatorio();
+        }, false);   
+    };
