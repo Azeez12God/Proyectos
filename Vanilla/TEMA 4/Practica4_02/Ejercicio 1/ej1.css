@@ -5,3 +5,7 @@
 .mostrar{
     display: block;
 }
+
+.cabecera{
+    cursor: pointer;
+}

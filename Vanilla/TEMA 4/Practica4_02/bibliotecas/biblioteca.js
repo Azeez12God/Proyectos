@@ -1,12 +1,14 @@
-const addEventoAcordeon = (elementos) => {
-    // Se transforma elementos en un Array (de este modo puedo usar map).
-    Array.from(elementos).map((elemento) => {
-      elemento.addEventListener("click", (evento) => {
-        const contenido = elemeno.nextElementSibling;
-        if(contenido)
-            contenido.classList.toggle("mostrar")
-      });
-    });
-  };
+"use strict";
 
-  export {addEventoAcordeon}
+// Función para añadir el evento click a todas las cabeceras del acordeón.
+const addEventosCabeceras = (cabeceras) => {
+  // Convertimos a Array las cabeceras para poder hacer map.
+  Array.from(cabeceras).map((cabecera) => {
+    cabecera.addEventListener("click", () => {
+        // El contenido (nextElementSibling de las cabeceras) se mostrará con la clase "Mostrar".
+        cabecera.nextElementSibling.classList.toggle("mostrar");
+    });
+  });
+}
+
+export {addEventosCabeceras}
