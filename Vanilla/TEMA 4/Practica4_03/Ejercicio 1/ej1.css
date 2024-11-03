@@ -1,0 +1,86 @@
+.contenedor {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.panel-control {
+    width: 20%;
+    padding: 10px;
+    border-right: 1px solid gainsboro;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.panel-control h3 {
+    margin-bottom: 10px;
+}
+
+.tabla-colores {
+    margin-bottom: 20px;
+}
+
+.tabla-colores td {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border: 1px solid #000;
+    border-radius: 50%; /* Opcional si quieres los colores en círculo */
+}
+
+.black {
+    background-color: black;
+}
+
+.red {
+    background-color: red;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.white {
+    background-color: white;
+}
+
+.borrar {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.area-dibujable {
+    width: auto;
+}
+
+.tabla-dibujable {
+    border: 1px solid gainsboro;
+    width: auto;
+    height: auto;
+    cursor: crosshair;
+}
+
+.tabla-dibujable td {
+    width: 20px;
+    height: 20px;
+}
+
+.esconder{
+    display: none;
+}

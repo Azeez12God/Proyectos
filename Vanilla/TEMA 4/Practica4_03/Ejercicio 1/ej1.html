@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pintarajea</title>
+    <link rel="stylesheet" href="ej1.css">
+</head>
+<body>
+    <div class="contenedor">
+        <div class="panel-control">
+            <h3>Colores</h3>
+            <table class="tabla-colores" id="tabla-colores">
+                <tr id="filaColores">
+                    <td class="black"></td>
+                    <td class="red"></td>
+                    <td class="yellow"></td>
+                    <td class="green"></td>
+                    <td class="blue"></td>
+                    <td class="white"></td>
+                </tr>
+                <tr>
+                    <td class="esconder" id="columnaColor"></td>
+                </tr>
+            </table>
+            <button class="borrar" id="boton-borrar">Borrar</button>
+        </div>
+        
+        <div class="area-dibujable">
+            <table class="tabla-dibujable" id="tabla"></table>
+        </div>
+    </div>
+    <script src="./ej1.js" type="module"></script>
+</body>
+</html>
