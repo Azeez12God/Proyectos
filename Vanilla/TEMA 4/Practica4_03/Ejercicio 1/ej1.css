@@ -2,14 +2,15 @@
     display: flex;
     justify-content: space-between;
     width: 80%;
-    margin: 0 auto;
+    margin: auto;
     border: 1px solid #ccc;
-    padding: 20px;
-    box-sizing: border-box;
+    height: 80%;
+    padding: 10px;
 }
 
 .panel-control {
-    width: 20%;
+    width: 30%;
+    height: 50%;
     padding: 10px;
     border-right: 1px solid gainsboro;
     display: flex;
@@ -23,6 +24,7 @@
 
 .tabla-colores {
     margin-bottom: 20px;
+    table-layout: fixed;
 }
 
 .tabla-colores td {
@@ -65,14 +67,8 @@
     cursor: pointer;
 }
 
-.area-dibujable {
-    width: auto;
-}
-
 .tabla-dibujable {
     border: 1px solid gainsboro;
-    width: auto;
-    height: auto;
     cursor: crosshair;
 }
 
