@@ -26,21 +26,23 @@ window.onload = () => {
     );
 
     // Añadimos los eventos de pintar a las celdas cogiendo el color con la fila escondida.
-    const celdas = tablaPintable.getElementsByTagName('td');
-    for (let i = 0; i < celdas.length; i++) {
-        // Añadimos el evento click a todas las celdas para alternar el estado de pintando.
-        celdas[i].addEventListener('click', () => {
-            pintando ? pintando = false : pintando=true;
-        });
+    tablaPintable.addEventListener(
+        "click",
+        (evento)=>{
+            if(evento.target.tagName === "TD")
+                pintando ? pintando=false : pintando=true;
+        },
+        false
+    );
 
-        // Añadimos el evento mousemove para pintar la tabla segun se mueva el ratón.
-        celdas[i].addEventListener('mousemove', (evento) => {
-            // Se pinta la tabla siempre y cuando esté pintando en true y se esté dando click a un TD.
-            if (pintando && evento.target.tagName === "TD") {
-                celdas[i].className = columnaColor.innerHTML;
-            }
-        });
-    }
+    tablaPintable.addEventListener(
+        "mousemove",
+        (evento)=>{
+            if(evento.target.tagName === "TD" && pintando)
+                evento.target.className = columnaColor.innerHTML;
+        },
+        false
+    );
 
     // Añadimos el evento de poner toda las celdas a blanco (borrar la tabla) al botón.
     botonBorrar.addEventListener(
