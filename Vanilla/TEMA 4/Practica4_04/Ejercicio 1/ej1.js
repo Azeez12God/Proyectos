@@ -9,7 +9,11 @@ window.onload = () => {
     zonaArrastrable.addEventListener(
         "dragstart",
         (evento) => {
-            evento.dataTransfer.setData("id",evento.target.id);
+            console.log(evento.target);
+            if (evento.target.tagName === "IMG"){
+                evento.dataTransfer.setData("id", evento.target.id);
+                console.log(evento.dataTransfer.getData("identificador"));
+            }
         },
         false
     );
@@ -23,6 +27,17 @@ window.onload = () => {
     );
 
     zonaArrastrable.addEventListener(
-        "drop"
+        "drop",
+        (evento)=>{
+            evento.preventDefault();
+
+            if(evento.target.classList.contains("soltable")){
+                console.log(document.getElementById(evento.dataTransfer.getData("id")))
+                evento.target.appendChild(
+                    document.getElementById(evento.dataTransfer.getData("id"))
+                );
+            }
+        },
+        false
     )
 }; //Fin del onload 
