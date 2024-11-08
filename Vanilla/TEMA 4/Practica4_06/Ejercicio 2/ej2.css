@@ -1,0 +1,13 @@
+.azulNegrita{
+    font-weight: bolder;
+    color: blue;
+}
+
+.rojoCursiva{
+    font-style: italic;
+    color: red;
+}
+
+.fondoVerde{
+    background-color: green;
+}
