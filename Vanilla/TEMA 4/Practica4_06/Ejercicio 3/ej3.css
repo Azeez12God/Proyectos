@@ -1,0 +1,13 @@
+.esconder{
+    display: none;
+}
+
+#listadoDiscos{
+    border: 1px solid red;
+    padding: 10px;
+}
+.disco{
+    border: 1px solid orange;
+    padding: 10px;
+    margin-bottom: 10px;
+}

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./ej3.css">
 </head>
 <body>
     <form>
@@ -12,7 +13,7 @@
         <label for="grupo">Grupo de música o intérprete</label>
         <input type="text" id="grupo" name="grupo"/><br/>
         <label for="year">Año de publicación:</label>
-        <input type="year" id="year" name="year"/><br/>
+        <input type="number" id="year" name="year"/><br/>
         <label for="tipo">Tipo de música:</label>
         <select name="tipo" id="tipo">
             <option value="rock">Rock</option>
@@ -23,13 +24,19 @@
         <label for="localizacion">Localización:</label>
         <input type="text" id="localizacion" name="localizacion"/><br/>
         <div id="prestado">
-            <input type="radio" id="si" name="si" value="si"/>
+            <label for="si">¿Es prestado?</label>
+            <input type="radio" id="si" name="prestado" value="si"/>
             <label for="si">Sí</label>
-            <input type="radio" id="no" name="no" value="no" checked/>
+            <input type="radio" id="no" name="prestado" value="no" checked/>
             <label for="no">No</label>
         </div><br/>
         <input type="button" id="botonGuardar" value="Guardar"/>
         <input type="button" id="botonMostrar" value="Mostrar"/>
+        <br>
+        <p id="mensaje" class="esconder"></p>
+        <div id="listadoDiscos" class="esconder"></div>
     </form>
+
+    <script src="./ej3.js"></script>
 </body>
 </html>
