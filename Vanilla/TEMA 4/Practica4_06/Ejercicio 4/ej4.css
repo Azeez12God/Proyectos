@@ -1,0 +1,13 @@
+.alicante,
+.valencia,
+.castellon{
+    display: none;
+}
+
+.mostrar{
+    display: inline;
+}
+
+#botonEnviar{
+    margin-top: 10px;
+}

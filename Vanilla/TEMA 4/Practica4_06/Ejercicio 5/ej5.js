@@ -1,5 +1,7 @@
 "use strict";
 
+import { comprobar5CaracteresYRequerido } from "../Bibliotecas/biblioteca.js";
+
 window.onload = () => {
     // Declaramos los elementos del DOM que necesitamos para el disco.
     const nombre = document.getElementById("nombre");
@@ -10,9 +12,62 @@ window.onload = () => {
     const opcionesPrestado = document.getElementsByName("prestado");
     const mensaje = document.getElementById("mensaje");
     const botonGuardar = document.getElementById("botonGuardar");
+    const formulario = document.getElementById("formulario");
 
     // Declaramos un array donde se guardarán los objetos disco.
     let listaDiscos = [];
+
+    // Según se pongan datos en los inputs se validará si sun válidos o no. En caso de no serlo se pondrá el borde en rojo del input y el label en color rojo.
+    formulario.addEventListener("change", (evento) => {
+        const input = evento.target;
+
+        // Tanto nombre como grupo hay que mirar si tienen 5 caracteres o más y son requeridos.
+        if (input.id === "nombre") {
+            if (!comprobar5CaracteresYRequerido(nombre.value)) {
+                input.classList.add("errorInput");
+                input.previousElementSibling.classList.add("errorLabel");
+            } else {
+                input.classList.remove("errorInput");
+                input.previousElementSibling.classList.remove("errorLabel");
+            }
+        }
+
+        if(input.id === "grupo"){
+            if (!comprobar5CaracteresYRequerido(grupo)) {
+                input.classList.add("errorInput");
+                input.previousElementSibling.classList.add("errorLabel");
+            } else {
+                input.classList.remove("errorInput");
+                input.previousElementSibling.classList.remove("errorLabel");
+            }
+        }
+
+        // Comprobamos que el año tengo 4 dígitos.
+        if(input.id === "year"){
+            if(input.value.toString().length !== 4){
+                input.classList.add("errorInput");
+                input.previousElementSibling.classList.add("errorLabel");
+            } else {
+                input.classList.remove("errorInput");
+                input.previousElementSibling.classList.remove("errorLabel");
+            }
+        }
+
+        // Comprobamos que la localización coincida conque tenga ES-3números2letrasmayúsculas.
+        if(input.id === "localizacion"){
+            // Expresión regular para validar el formato ES-001AA
+            const pattern = /^ES-\d{3}[A-Z]{2}$/;
+
+            // Esto lo he tenido que buscar porque no sabía hacerlo, he entendido este método test, mira que cumpla con el patrón establecido.
+            if(!pattern.test(input.value)){
+                input.classList.add("errorInput");
+                input.previousElementSibling.classList.add("errorLabel");
+            } else {
+                input.classList.remove("errorInput");
+                input.previousElementSibling.classList.remove("errorLabel");
+            }
+        }
+    }, false);
 
     // El botón guardar mete al array un objeto disco con los datos pasados en el formulario.
     botonGuardar.addEventListener(

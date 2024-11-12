@@ -17,4 +17,13 @@ const comprobarPar = (numero) => {
     return esPar;
 };
 
-export{generarNumeroAleatorio, comprobarPar};
+const comprobar5CaracteresYRequerido = (texto) => {
+    let esValido = true;
+
+    // Si el texto está vacío o tiene menos de 5 caracteres, es inválido.
+    esValido = texto.trim() !== "" && texto.length >= 5;
+
+    return esValido;
+}
+
+export{generarNumeroAleatorio, comprobarPar, comprobar5CaracteresYRequerido};
