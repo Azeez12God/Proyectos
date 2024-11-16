@@ -1,0 +1,37 @@
+.discente {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.discente:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.discente h2 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: #007BFF;
+}
+
+.discente h3 {
+    margin: 10px 0 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+.discente ul {
+    margin: 0;
+    padding: 0 0 0 20px;
+    list-style: disc;
+}
+
+.discente li {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+}

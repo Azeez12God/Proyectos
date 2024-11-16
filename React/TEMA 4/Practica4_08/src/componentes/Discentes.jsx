@@ -1,9 +1,10 @@
 import React from 'react'
 import Discente from './Discente.jsx';
 import { generarUuidAleatorio } from '../biblioteca/biblioteca.js';
+import './Discentes.css'
 
 const Discentes = (props) => {
-    const {discentes} = props;
+    const {discentes, borrarAlumno} = props;
     
     return (
         <>
@@ -18,6 +19,7 @@ const Discentes = (props) => {
                         curso={discente.curso}
                         aficiones={discente.aficiones}
                         comida={discente.comida}
+                        borrarAlumno={borrarAlumno}
                         />
                     );
                 })
