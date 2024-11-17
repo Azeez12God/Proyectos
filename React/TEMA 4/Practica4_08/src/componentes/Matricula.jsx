@@ -74,7 +74,10 @@ const Matricula = (props) => {
     return (
         <>
             <div id='contenedor-contenedor'>
-                <div className='contenedor-discentes'>
+                <div className='contenedor-discentes' onClick={(evento)=>{
+                    borrarAlumno(evento.target.id);
+                    console.log(evento.target.id)
+                }}>
                     <Discentes discentes={discentes} borrarAlumno={borrarAlumno}/>
                 </div>
                 <div className='contenedor-botones'>
