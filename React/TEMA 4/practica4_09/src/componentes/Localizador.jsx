@@ -12,7 +12,7 @@ const Localizador = () => {
     }
 
     useEffect(()=>{
-        // Declaramos un evento mousemove en el documente (padre del DOM) que usa la función declarada arriba.
+        // Declaramos un evento mousemove en el documento (padre del DOM) que usa la función declarada arriba.
         document.addEventListener("mousemove", cambiarCoordenadas, false);
 
         // Borramos el evento cuando se desmonte el componente.

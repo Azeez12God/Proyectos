@@ -15,7 +15,7 @@ const Contador = () => {
             setContador5(contador);
     }
 
-    // Declaramos un efecto para añadir el evento click al documento y quitárselo cuando se demonte, además depende del contador.
+    // Declaramos un efecto para añadir el evento click al documento y quitárselo cuando se desmonte, además depende del contador.
     useEffect(()=>{
         document.addEventListener("click",aumentarContador,false);
         return () => {
@@ -25,6 +25,7 @@ const Contador = () => {
 
     return (
         <>
+        {/** Ponemos el párrafo que se vaya actualizando cuando sea divisible entre 5. */}
             <p>Estimado usuario/a, has pulsado {contador % 5 === 0 ? contador : contador5} veces el ratón.</p>
         </>
     )
