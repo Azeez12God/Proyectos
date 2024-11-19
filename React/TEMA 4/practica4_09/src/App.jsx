@@ -3,6 +3,7 @@ import './App.css'
 import Localizador from './componentes/Localizador.jsx';
 import Colorines from './componentes/Colorines.jsx';
 import Contador from './componentes/Contador.jsx';
+import Cronometro from './componentes/Cronometro.jsx';
 
 function App() {
   // Declaramos un estado que comprobará cuando se esté mostrando el componente Localizador.
@@ -20,7 +21,8 @@ function App() {
 
       {/*mostrar && <Localizador/>*/}
       {/*mostrar && <Colorines/>*/}
-      {mostrar && <Contador/>}
+      {/*mostrar && <Contador/>*/}
+      {mostrar && <Cronometro/>}
     </>
   )
 }
