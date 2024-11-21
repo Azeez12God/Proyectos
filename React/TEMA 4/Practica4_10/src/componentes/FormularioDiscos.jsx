@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
+import Discos from './Discos.jsx';
+import './FormularioDiscos.css';
 
 const FormularioDiscos = () => {
     const valoresIniciales = {
@@ -7,15 +9,19 @@ const FormularioDiscos = () => {
         year: "",
         tipo: "",
         localizacion: "",
-        prestado:""
     };
 
     const [disco, setDisco] = useState(valoresIniciales);
+    const discoRef = useRef(null);
 
     const actualizarDisco = (evento) => {
         const {name, value} = evento.target;
 
         setDisco({...disco, [name]:value});
+    };
+
+    const mostrarDiscos = (referencia) => {
+        referencia.current.classList.toggle("esconder");
     };
 
     return (
@@ -61,8 +67,19 @@ const FormularioDiscos = () => {
                     /><br/>
                 </form>
 
-                <h2>Valor del estado actual.</h2>
-                <pre>{JSON.stringify(disco, null, 2)}</pre>
+                <button>
+                    Guardar disco
+                </button>
+
+                <button onClick={()=>{
+                    mostrarDiscos(discoRef);
+                }}>
+                    Mostrar discos
+                </button>
+
+                <div id='discos-contenedor' className='esconder' ref={discoRef}>
+                    <Discos discos={disco}/>
+                </div>
             </div>
         </>
     )
