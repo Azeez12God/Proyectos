@@ -92,7 +92,7 @@ const FormularioDiscos = () => {
 
         for(let i=0;i<formulario.elements.length;i++){
             let erroresInputs = validarDato(formulario.elements[i]);
-            if(erroresInputs !== 0){
+            if(erroresInputs.length !== 0){
                 formulario.elements[i].previousElementSibling.classList.add("errorLabel");
                 formulario.elements[i].classList.add("errorInput");
             }
@@ -106,7 +106,10 @@ const FormularioDiscos = () => {
 
         setErrores(erroresListado);
 
-        erroresListado.length && setListaDiscos([...listaDiscos,disco]);
+        if(erroresListado.length===0){
+            setListaDiscos([...listaDiscos,disco]);
+            setDisco(valoresIniciales);
+        } 
     };
 
     return (
@@ -165,7 +168,7 @@ const FormularioDiscos = () => {
                     Mostrar discos
                 </button>
 
-                <div className='esconder' ref={erroresRef}>
+                <div>
                     <h2>Control de errores</h2>
                     <Errores erroresMostrar={errores}/>
                 </div>
