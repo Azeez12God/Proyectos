@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./ej1.css">
+    <title>Rompecabezas</title>
+</head>
+<body>
+    <div id="zona-con-arrastrar">
+        <div id="arrastrables" class="soltable">
+            <img src="./Piezas puzzle/fila-3-columna-2.png" class="arrastrable" id="img8"/>
+            <img src="./Piezas puzzle/fila-1-columna-3.png" class="arrastrable" id="img3"/>
+            <img src="./Piezas puzzle/fila-2-columna-1.png" class="arrastrable" id="img4"/>
+            <img src="./Piezas puzzle/fila-3-columna-3.png" class="arrastrable" id="img9"/>
+            <img src="./Piezas puzzle/fila-2-columna-2.png" class="arrastrable" id="img5"/>
+            <img src="./Piezas puzzle/fila-1-columna-1.png" class="arrastrable" id="img1"/>
+            <img src="./Piezas puzzle/fila-2-columna-3.png" class="arrastrable" id="img6"/>
+            <img src="./Piezas puzzle/fila-3-columna-1.png" class="arrastrable" id="img7"/>
+            <img src="./Piezas puzzle/fila-1-columna-2.png" class="arrastrable" id="img2"/>
+        </div>
+    
+        <div id="primera-fila-soltables">
+            <div class="soltable puzzle"></div>
+            <div class="soltable puzzle"></div>
+            <div class="soltable puzzle"></div>
+        </div>
+    
+        <div id="segunda-fila-soltables">
+            <div class="soltable puzzle"></div>
+            <div class="soltable puzzle"></div>
+            <div class="soltable puzzle"></div>
+        </div>
+    
+        <div id="tercera-fila-soltables">
+            <div class="soltable puzzle"></div>
+            <div class="soltable puzzle"></div>
+            <div class="soltable puzzle"></div>
+        </div>
+    </div>
+    <div class="botones">
+        <button id="restart">
+            Reiniciar puzzle
+        </button>
+    </div>
+    <h2 class="esconder" id="mensaje">¡Felicidades! ¡Has terminado el puzzle!</h2>
+    <script src="./rompecabezas.js" type="module"></script>
+</body>
+</html>
