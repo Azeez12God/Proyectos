@@ -1,0 +1,72 @@
+/* Estilo general del contenedor principal */
+#contenedor-contenedor {
+    display: flex; /* Disposición horizontal */
+    align-items: stretch;
+    border: 2px solid orange; /* Borde externo del contenedor */
+    width: 80%; /* Ajusta el ancho al contenido del viewport */
+    max-width: 800px; /* Ancho máximo */
+    margin: 20px auto; /* Centrar en la página */
+    overflow: hidden; /* Evita que el contenido desborde */
+}
+
+/* Contenedor de la lista de películas */
+.contenedor-peliculas {
+    flex: 1; /* Ocupa 1 parte del espacio disponible */
+    border: 2px solid purple; /* Borde púrpura */
+    display: flex; /* Alinear contenido dentro de este contenedor */
+    flex-direction: column; /* Disposición vertical */
+    justify-content: flex-start; /* Alinear elementos al principio */
+    align-items: flex-start; /* Alinear al inicio horizontalmente */
+    padding: 10px;
+    margin: 5px;
+    overflow-y: auto; /* Scroll si el contenido excede el espacio */
+    max-height: 400px; /* Limitar el alto máximo */
+}
+
+/* Estilo de la lista */
+.contenedor-peliculas ul {
+    list-style-type: none; /* Quitar los marcadores */
+    padding: 0;
+    margin: 0;
+}
+
+.contenedor-peliculas li {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: purple;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.contenedor-peliculas h2 {
+    font-size: 16px;
+}
+
+/* Contenedor de la información de la película */
+.contenedor-informacion {
+    flex: 3; /* Ocupa 3 partes del espacio disponible */
+    border: 2px solid black; /* Borde negro */
+    display: flex;
+    flex-direction: column; /* Los elementos se disponen en columna */
+    padding: 10px;
+    margin: 5px;
+    overflow-y: auto; /* Scroll si el contenido excede el espacio */
+}
+
+/* Estilo del título de la película */
+.informacion-titulo {
+    border: 2px solid green; /* Borde verde */
+    padding: 5px;
+    margin-bottom: 10px; /* Espaciado inferior */
+    font-weight: bold;
+    color: green;
+    text-align: center;
+}
+
+/* Estilo de los datos de la película */
+.informacion-datos {
+    flex: 1; /* Ocupa el resto del espacio disponible */
+    border: 2px solid black; /* Borde negro */
+    padding: 10px;
+    word-wrap: break-word; /* Evita desbordamientos de texto */
+}
