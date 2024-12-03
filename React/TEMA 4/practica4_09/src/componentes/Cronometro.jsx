@@ -27,7 +27,7 @@ const Cronometro = () => {
                     if (centesimas + 1 === 100) {
                         // Sumamos 1 segundo y ponemos las centésimas a 0.
                         setSegundos((segundos) => segundos + 1);
-                        return 0;
+                        centesimas = 0;
                     }
                     return centesimas + 1;
                 });

@@ -22,7 +22,7 @@ function App() {
       {/*mostrar && <Localizador/>*/}
       {/*mostrar && <Colorines/>*/}
       {/*mostrar && <Contador/>*/}
-      {mostrar && <Cronometro/>}
+      {/*mostrar && <Cronometro/>*/}
     </>
   )
 }

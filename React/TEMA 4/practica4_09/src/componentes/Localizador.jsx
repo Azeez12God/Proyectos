@@ -6,7 +6,7 @@ const Localizador = () => {
     const [coordenadaY, setCoordenadaY] = useState(0);
 
     // Función que cambia las coordenadas X e Y de los estados.
-    const cambiarCoordenadas = () => {
+    const cambiarCoordenadas = (evento) => {
         setCoordenadaX(evento.pageX);
         setCoordenadaY(evento.pageY);
     }
