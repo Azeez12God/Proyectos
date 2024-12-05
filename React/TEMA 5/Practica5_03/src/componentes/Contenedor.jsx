@@ -1,21 +1,17 @@
 import React from 'react'
+import PeliculaLista from './PeliculaLista.jsx'
+import './Contenedor.css';
 
 const Contenedor = () => {
   return (
     <>
         <div id="contenedor-contenedor">
-            <div class="contenedor-peliculas">
-                <h2>Películas Star Wars</h2>
-                <ul class="peliculas-lista" id="peliculas-lista">
-
-                </ul>
-            </div>
-
-            <div class="contenedor-informacion">
-                <div class="informacion-titulo" id="informacion-titulo">
+            <PeliculaLista/>
+            <div className="contenedor-informacion">
+                <div className="informacion-titulo" id="informacion-titulo">
                     <h2>No has seleccionado película.</h2>
                 </div>
-                <div class="informacion-datos" id="informacion-datos">
+                <div className="informacion-datos" id="informacion-datos">
                     <p>Clica en una película en la lista de películas.</p>
                 </div>
             </div>

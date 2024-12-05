@@ -1,0 +1,18 @@
+/* Estilo de la lista */
+.contenedor-peliculas ul {
+    list-style-type: none; /* Quitar los marcadores */
+    padding: 0;
+    margin: 0;
+}
+
+.contenedor-peliculas li {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: purple;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.contenedor-peliculas h2 {
+    font-size: 16px;
+}
