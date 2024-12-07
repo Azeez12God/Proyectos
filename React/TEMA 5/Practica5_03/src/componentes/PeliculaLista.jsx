@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './PeliculaLista.css';
 import { generarUuidAleatorio } from '../biblioteca/biblioteca.js';
 
-const PeliculaLista = () => {
+const PeliculaLista = ({seleccionarPelicula}) => {
     const url = "https://swapi.dev/api/films";
     const peliculasIniciales = [];
     const errorInicial = "";
@@ -36,7 +36,10 @@ const PeliculaLista = () => {
             ) : (
                 <ul className="peliculas-lista" id="peliculas-lista">
                     {peliculas.map((pelicula) => (
-                        <li key={pelicula.episode_id}>
+                        <li 
+                            key={pelicula.episode_id}
+                            onClick={()=>{seleccionarPelicula(pelicula)}}
+                        >
                             Episodio {pelicula.episode_id}: {pelicula.title}
                         </li>
                     ))}
