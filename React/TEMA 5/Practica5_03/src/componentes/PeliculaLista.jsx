@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import './PeliculaLista.css';
-import { generarUuidAleatorio } from '../biblioteca/biblioteca.js';
 
 const PeliculaLista = ({seleccionarPelicula}) => {
     const url = "https://swapi.dev/api/films";
