@@ -9,4 +9,17 @@ function formatearFecha(fecha) {
     return `${day}/${month}/${year}`; // Reorganiza en formato europeo
 }
 
-export {generarUuidAleatorio, formatearFecha}
+const obtenerDatos = (url) => {
+    return fetch(url)
+    .then((respuesta)=>{
+        return respuesta.json();
+    })
+    .then((datos)=>{
+        return datos;
+    })
+    .catch((error)=>{
+        setError(error);
+    });
+}
+
+export {generarUuidAleatorio, formatearFecha, obtenerDatos}

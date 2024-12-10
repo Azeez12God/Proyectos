@@ -3,6 +3,7 @@ import './App.css'
 import PeliculaInformación from './componentes/PeliculaInformación.jsx';
 import PeliculaLista from './componentes/PeliculaLista.jsx';
 import { useEffect } from 'react';
+import { obtenerDatos } from './biblioteca/biblioteca.js';
 
 function App() {
   const peliculasIniciales = [];
@@ -15,21 +16,19 @@ function App() {
   const [error, setError] = useState(errorInicial);
 
   const manejarPeliculaSeleccionada = (id) => {
-      
+    const filtrarPelicula = peliculas.filter((pelicula)=>{
+      return pelicula.episode_id === parseInt(id);
+    });
+    setPeliculaSeleccionada(filtrarPelicula[0]);
   }
 
-  const traerPeliculas = () => {
-    // Al cargar la página consumimos la URL para que muestre las películas o salga error.
-    fetch(url)
-    .then((respuesta)=>{
-        return respuesta.json();
-    })
-    .then((datos)=>{
-        setPeliculas(datos.results);
-    })
-    .catch((error)=>{
-        setError(error);
-    });
+  const traerPeliculas = async() => {
+    try{
+      const datos = await obtenerDatos(url);
+      setPeliculas(datos.results);
+    }catch(error){
+      setError(`Se ha producido un error en la película: ${error.message}`)
+    }
   }
 
   useEffect(()=>{
@@ -39,7 +38,7 @@ function App() {
   return (
       <>
         <div id="contenedor-contenedor">
-          <PeliculaLista peliculas={peliculas}/>
+          <PeliculaLista peliculas={peliculas} seleccionarPelicula={manejarPeliculaSeleccionada}/>
           <div className="contenedor-informacion">
             <div className="informacion-titulo" id="informacion-titulo">
               {peliculaSeleccionada
