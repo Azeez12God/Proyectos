@@ -1,96 +1,42 @@
-#root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
-  }
-  
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.react:hover {
-    filter: drop-shadow(0 0 2em #61dafbaa);
-  }
-  
-  @keyframes logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
-  .card {
-    padding: 2em;
-  }
-  
-  .read-the-docs {
-    color: #888;
-  }
-  
-  /* Contenedor principal */
-  #contenedor-contenedor {
-    display: flex; /* Coloca los elementos lado a lado */
-    align-items: stretch; /* Extiende los hijos al mismo alto */
-    border: 2px solid orange;
-    width: 90%; /* Ajusta el ancho del contenedor */
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 1rem;
-    gap: 10px; /* Espaciado entre contenedores */
-  }
-  
-  /* Contenedor de la lista de películas */
-  .contenedor-peliculas {
-    flex: 1; /* Ocupa un tercio del espacio disponible */
-    border: 2px solid purple;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 15px;
-    overflow-y: auto; /* Habilitar scroll si hay mucho contenido */
-    max-height: 500px; /* Limitar altura máxima */
-    background-color: #f9f9f9; /* Fondo claro */
-  }
-  
-  /* Contenedor de la información de la película */
-  .contenedor-informacion {
-    flex: 3; /* Ocupa el resto del espacio disponible */
-    border: 2px solid black;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    overflow-y: auto; /* Habilitar scroll */
-    background-color: #ffffff; /* Fondo blanco */
-  }
-  
-  /* Estilo del título de la película */
-  .informacion-titulo {
-    padding: 10px;
-    margin-bottom: 20px;
-    font-size: 1.5rem; /* Tamaño más grande */
-    font-weight: bold;
-    color: #2c3e50;
-    text-align: center;
-    background-color: #e8f5e9; /* Fondo verde suave */
-  }
-  
-  /* Estilo de los datos de la película */
-  .informacion-datos {
-    flex: 1;
-    padding: 15px;
-    font-size: 1rem;
-    line-height: 1.6; /* Espaciado entre líneas */
-    word-wrap: break-word; /* Evitar desbordamientos */
-    color: #444;
-    background-color: #f7f7f7; /* Fondo claro */
-  }
-      
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+#contenedor-contenedor {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 20px;
+}
+
+.contenedor-informacion {
+  flex: 1;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.informacion-titulo h3 {
+  font-size: 24px;
+  margin: 0;
+  color: #007BFF;
+}
+
+.informacion-datos p {
+  line-height: 1.6;
+  margin: 10px 0;
+}

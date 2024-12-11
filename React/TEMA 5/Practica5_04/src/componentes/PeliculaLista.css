@@ -1,18 +1,32 @@
-/* Estilo de la lista */
-.contenedor-peliculas ul {
-    list-style-type: none; /* Quitar los marcadores */
+.contenedor-peliculas {
+    flex: 1;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.contenedor-peliculas h2 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.peliculas-lista {
+    list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.contenedor-peliculas li {
-    margin-bottom: 5px;
-    font-size: 14px;
-    color: purple;
-    font-weight: bold;
+.peliculas-lista li {
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
     cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.contenedor-peliculas h2 {
-    font-size: 16px;
+.peliculas-lista li:hover {
+    background-color: #007BFF;
+    color: #ffffff;
 }

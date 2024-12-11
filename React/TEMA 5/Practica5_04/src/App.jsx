@@ -11,17 +11,20 @@ function App() {
   const errorInicial = "";
   const url = "https://swapi.dev/api/films"; 
 
+  // Declaramos los estados del componente.
   const [peliculas, setPeliculas] = useState(peliculasIniciales);
   const [peliculaSeleccionada, setPeliculaSeleccionada] = useState(peliculaSeleccionadaInicial);
   const [error, setError] = useState(errorInicial);
 
+  // Función que maneja la película que está siendo seleccionada al clicar un li.
   const manejarPeliculaSeleccionada = (id) => {
     const filtrarPelicula = peliculas.filter((pelicula)=>{
-      return pelicula.episode_id === parseInt(id);
+      return pelicula.episode_id === parseInt(id); // El id es un número.
     });
     setPeliculaSeleccionada(filtrarPelicula[0]);
   }
 
+  // Función que trae las peliculas de la API con await y las guarda en el estado.
   const traerPeliculas = async() => {
     try{
       const datos = await obtenerDatos(url);
@@ -31,6 +34,7 @@ function App() {
     }
   }
 
+  // Traemos las películas al principio del componente.
   useEffect(()=>{
       traerPeliculas();
   }, []);
@@ -48,12 +52,9 @@ function App() {
             </div>
             <div className="informacion-datos" id="informacion-datos">
               {peliculaSeleccionada
-              ? <PeliculaInformación
-                  sinopsis={peliculaSeleccionada.opening_crawl}
-                  director={peliculaSeleccionada.director}
-                  productor={peliculaSeleccionada.producer}
-                  fechaLanzamiento={peliculaSeleccionada.release_date}
-              />
+              ? <>
+                  <PeliculaInformación pelicula={peliculaSeleccionada}/>
+                </>
               : <p>Clica en una película en la lista de películas.</p>
               }
             </div>
