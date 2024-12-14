@@ -1,0 +1,47 @@
+/* Título de la información del personaje */
+.informacion-nombre h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #0277bd;
+  }
+  
+  /* Estilo de los datos del personaje */
+  .informacion-datos p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  
+  .informacion-datos strong {
+    color: #333;
+  }
+  
+  .esconder{
+    display: none;
+  }
+
+  button {
+    background-color: #0277bd;  /* Fondo azul */
+    color: white;  /* Texto blanco */
+    font-size: 1rem;  /* Tamaño de fuente */
+    padding: 10px 20px;  /* Relleno alrededor del texto */
+    border: none;  /* Sin borde */
+    border-radius: 5px;  /* Bordes redondeados */
+    cursor: pointer;  /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease, transform 0.2s ease;  /* Transiciones suaves */
+  }
+  
+  button:hover {
+    background-color: #01579b;  /* Fondo más oscuro al pasar el ratón */
+    transform: scale(1.05);  /* Efecto de agrandar ligeramente al hacer hover */
+  }
+  
+  button:focus {
+    outline: none;  /* Elimina el borde de enfoque */
+    box-shadow: 0 0 0 2px rgba(2, 119, 189, 0.5);  /* Agrega sombra al hacer clic */
+  }
+  
+  button:active {
+    transform: scale(0.98);  /* Efecto al hacer clic, ligeramente más pequeño */
+  }
+  

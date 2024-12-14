@@ -10,3 +10,9 @@ const obtenerDatos = (url) => {
      `Se ha producido un error: ${error.message}`;
     })
 }
+
+const generarUuidAleatorio = () => {
+    return crypto.randomUUID();
+};
+
+export {obtenerDatos, generarUuidAleatorio}
