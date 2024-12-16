@@ -9,7 +9,7 @@ function App() {
   const peliculasIniciales = [];
   const peliculaSeleccionadaInicial = "";
   const errorInicial = "";
-  const url = "https://swapi.py4e.com/api/films/"; 
+  const url = "https://swapi.py4e.com/api/films"; 
 
   // Declaramos los estados del componente.
   const [peliculas, setPeliculas] = useState(peliculasIniciales);
