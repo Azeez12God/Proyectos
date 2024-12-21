@@ -4,7 +4,6 @@ import './InfoPersonaje.css'
 const InfoPersonaje = ({personaje}) => {
     const frutaRef = useRef(null);
 
-    // Función que muestra la información según la referencia.
     const mostrarInformacion = (referencia) => {
         referencia.current.classList.toggle("esconder");
     };

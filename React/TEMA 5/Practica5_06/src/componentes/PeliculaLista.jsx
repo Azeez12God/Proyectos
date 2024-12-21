@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import './PeliculaLista.css';
 import { generarUuidAleatorio } from '../biblioteca/biblioteca.js';
+import { useContext } from 'react';
+import { contextoPeliculas } from '../contextos/ProveedorPeliculas.jsx';
 
-const PeliculaLista = ({peliculas, seleccionarPelicula}) => {
+const PeliculaLista = () => {
+    const {peliculas, manejarPeliculaSeleccionada} = useContext(contextoPeliculas);
+
     return (
         <>
             <div className="contenedor-peliculas">
@@ -10,7 +14,7 @@ const PeliculaLista = ({peliculas, seleccionarPelicula}) => {
                 <ul className="peliculas-lista" id="peliculas-lista"
                     onClick={(evento)=>{
                         if(evento.target.tagName === "LI"){
-                            seleccionarPelicula(evento.target.id);
+                            manejarPeliculaSeleccionada(evento.target.id);
                         }
                     }}
                 >

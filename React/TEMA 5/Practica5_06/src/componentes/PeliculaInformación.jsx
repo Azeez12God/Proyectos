@@ -1,8 +1,13 @@
 import React from 'react'
 import { formatearFecha } from '../biblioteca/biblioteca.js'
 import PeliculaProtagonistas from './PeliculaProtagonistas.jsx'
+import { useContext } from 'react'
+import { contextoPeliculas } from '../contextos/ProveedorPeliculas.jsx'
 
-const PeliculaInformación = ({pelicula}) => {
+const PeliculaInformación = () => {
+    const {peliculaSeleccionada} = useContext(contextoPeliculas);
+    let pelicula = peliculaSeleccionada;
+
     return (
         <>
             <p><strong>Sinopsis:</strong> {pelicula.opening_crawl}</p>

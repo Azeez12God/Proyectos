@@ -1,0 +1,84 @@
+/* Contenedor principal */
+#protagonista-pilota {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+h2 {
+    color: #1a73e8;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Texto de las características del protagonista */
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+/* Estilo para los encabezados */
+strong {
+    color: #555;
+    font-weight: 600;
+}
+
+/* Botón */
+button {
+    background-color: #1a73e8;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: #1558b0;
+}
+
+/* Sección de vehículos y naves */
+.protagonista-vehiculos, .protagonista-naves {
+    background-color: #f0f7ff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Desaparecer elementos */
+.esconder {
+    display: none;
+}
+
+/* Ajuste visual para las listas de vehículos y naves */
+.protagonista-vehiculos p, .protagonista-naves p {
+    margin: 5px 0;
+    padding-left: 20px;
+    font-size: 1.1rem;
+    list-style-type: square;
+    color: #444;
+}
+
+/* Estilo adicional para el botón de ocultar/mostrar */
+.protagonista-vehiculos h2, .protagonista-naves h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.25rem;
+    color: #1a73e8;
+}
+
+/* Párrafo cuando no hay vehículos o naves */
+.protagonista-vehiculos p:last-child, .protagonista-naves p:last-child {
+    font-style: italic;
+    color: #888;
+}

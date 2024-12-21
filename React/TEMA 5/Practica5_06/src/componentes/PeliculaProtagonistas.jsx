@@ -1,29 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import { obtenerDatos } from '../biblioteca/biblioteca.js';
+import { useContext } from 'react';
 import PeliculaProtagonista from './PeliculaProtagonista.jsx';
+import { contextoPeliculas } from '../contextos/ProveedorPeliculas.jsx';
 
-const PeliculaProtagonistas = ({protas}) => {
-    const protasIniciales = [];
-    const [protagonistas, setProtagonistas] = useState(protasIniciales);
-
-    // Función que recoge los datos de cada protagonista en una promesa y luego las consume a la vez.
-    const traerProtagonistas = async (protas) => {
-        let promesas = [];
-        protas.map((prota)=>{
-            promesas = [...promesas, obtenerDatos(prota)];
-        });
-
-        let promesasConsumidas = await Promise.allSettled(promesas);
-        setProtagonistas(promesasConsumidas);
-    }
-
-    useEffect(()=>{
-        traerProtagonistas(protas);
-    }, [protas])
-
+const PeliculaProtagonistas = () => {
+    const {cargando} = useContext(contextoPeliculas);
     return (
         <>
-            <PeliculaProtagonista protasaMostrar={protagonistas}/>
+            <h3>10 protagonistas de la película.</h3>
+            {cargando ?
+                <p>Cargando protagonistas...</p>
+                : <PeliculaProtagonista />
+            }
         </>
     )
 }

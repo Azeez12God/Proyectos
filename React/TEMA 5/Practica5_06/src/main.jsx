@@ -2,9 +2,12 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
+import ProveedorPeliculas from './contextos/ProveedorPeliculas.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <ProveedorPeliculas>
+      <App />
+    </ProveedorPeliculas>
   </StrictMode>,
 )
