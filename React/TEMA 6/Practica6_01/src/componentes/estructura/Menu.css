@@ -1,16 +1,10 @@
-#cabecera {
+#menu {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Alinea los enlaces al inicio */
     align-items: center;
-}
-
-.cabecera__sesion {
-    text-align: right;
-}
-
-.navegacion__menu {
-    display: flex;
+    border: 1px solid black;
+    gap: 10px; /* Espaciado uniforme entre los enlaces */
 }
 
 .navegacion__enlace {
@@ -19,7 +13,6 @@
     justify-content: center; 
     min-width: 120px;
     height: 40px;
-    margin-right: 10px;
     border: 1px solid transparent; /* Elimina el borde blanco inicial */
     border-radius: 3px;
     font-weight: bolder;

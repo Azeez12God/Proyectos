@@ -9,6 +9,8 @@ const RutasUT06 = () => {
     <>
       <Routes>
         <Route path='/' element={<Inicio />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='*' element={<Error />} />
       </Routes>
     </>
   );
