@@ -1,0 +1,28 @@
+#menu {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Alinea los enlaces al inicio */
+    align-items: center;
+    border: 1px solid black;
+    gap: 10px; /* Espaciado uniforme entre los enlaces */
+}
+
+.navegacion__enlace {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    min-width: 120px;
+    height: 40px;
+    border: 1px solid transparent; /* Elimina el borde blanco inicial */
+    border-radius: 3px;
+    font-weight: bolder;
+    text-decoration: none;
+    background-color: #f0f0f0; /* Fondo neutro */
+    color: black; /* Texto negro para contraste */
+    transition: border-color 0.3s ease, background-color 0.3s ease; /* Transiciones suaves */
+}
+
+.navegacion__enlace:hover {
+    border-color: grey; /* Borde visible en hover */
+    background-color: #e0e0e0; /* Fondo más oscuro en hover */
+}
