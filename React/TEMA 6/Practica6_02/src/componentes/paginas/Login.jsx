@@ -1,11 +1,12 @@
 import React from "react";
 import "./Login.css";
+import CrearCuenta from "../sesion/CrearCuenta.jsx";
 
 const Login = () => {
   return (
     <>
       <div className='inicioSesion'>
-        <h2>Se podrá iniciar sesión o crear cuenta.</h2>
+        <CrearCuenta/>
       </div>
     </>
   );
