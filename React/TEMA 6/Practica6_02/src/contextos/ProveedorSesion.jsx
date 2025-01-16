@@ -1,8 +1,11 @@
 import React, { createContext, useState } from 'react'
 import {supabaseConexion} from '../config/supabase.js'
+import {useNavigate} from 'react-router-dom'
 
 const contextoSesion = createContext();
 const ProveedorSesion = ({children}) => {
+
+    const navegar = useNavigate();
 
     const datosSesionInicial = {
         email: "",
@@ -14,7 +17,6 @@ const ProveedorSesion = ({children}) => {
 
     /** Estados para proveer. */
     const [datosSesion, setDatosSesion] = useState(datosSesionInicial);
-    const [usuario, setUsuario] = useState(usuarioInicial);
     const [errorUsuario, setErrorUsuario] = useState(errorUsuarioInicial);
 
     const crearCuenta = async () => {
@@ -34,6 +36,26 @@ const ProveedorSesion = ({children}) => {
         catch(error){
             setErrorUsuario(error.message);
         }
+    };
+
+    const iniciarSesion = async () => {
+        try{
+            const {data, error} = await supabaseConexion.auth.signInWithPassword({
+                email: datosSesion.email,
+                password: datosSesion.password,
+            });
+    
+            if(error){
+                throw error;
+            }
+            else{
+                setErrorUsuario("Inicio de sesión correcto.");
+                navegar('/');
+            }
+        }
+        catch(error){
+            setErrorUsuario(error.message);
+        }
     }
 
     const actualizarDato = (evento) => {
@@ -44,6 +66,7 @@ const ProveedorSesion = ({children}) => {
     const datosProveer = {
         errorUsuario,
         crearCuenta,
+        iniciarSesion,
         actualizarDato,
       };
 

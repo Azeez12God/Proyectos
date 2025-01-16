@@ -3,7 +3,7 @@ import {contextoSesion} from '../../contextos/ProveedorSesion.jsx'
 import Errores from '../paginas/Errores.jsx';
 
 const CrearCuenta = () => {
-    const {errorUsuario, crearCuenta, actualizarDato} = useContext(contextoSesion);
+    const {crearCuenta, actualizarDato} = useContext(contextoSesion);
     return (
         <>
         <div className='cuentaUsuario'>
@@ -37,7 +37,6 @@ const CrearCuenta = () => {
             >
             Crear cuenta
             </button>
-            <Errores>{errorUsuario}</Errores>
         </div>
         </>
     )
