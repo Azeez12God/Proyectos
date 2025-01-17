@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./Login.css";
 import CrearCuenta from "../sesion/CrearCuenta.jsx";
-import IniciarSesión from "../sesion/IniciarSesión.jsx";
+import IniciarSesion from "../sesion/IniciarSesion.jsx";
 import { contextoSesion } from "../../contextos/ProveedorSesion.jsx";
 import Errores from "./Errores.jsx";
 
@@ -11,7 +11,7 @@ const Login = () => {
     <>
       <div className='inicioSesion'>
         <CrearCuenta/>
-        <IniciarSesión/>
+        <IniciarSesion/>
       </div>
       <Errores>{errorUsuario ? errorUsuario : ""}</Errores>
     </>

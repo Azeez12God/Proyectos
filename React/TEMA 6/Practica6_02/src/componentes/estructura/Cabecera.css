@@ -3,33 +3,34 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.cabecera__sesion {
-    text-align: right;
+    padding: 0 1rem; /* Espaciado horizontal */
 }
 
 .navegacion__menu {
     display: flex;
-}
-
-.navegacion__enlace {
-    display: flex;
     align-items: center;
-    justify-content: center; 
-    min-width: 120px;
-    height: 40px;
-    margin-right: 10px;
-    border: 1px solid transparent; /* Elimina el borde blanco inicial */
-    border-radius: 3px;
-    font-weight: bolder;
-    text-decoration: none;
-    background-color: #f0f0f0; /* Fondo neutro */
-    color: black; /* Texto negro para contraste */
-    transition: border-color 0.3s ease, background-color 0.3s ease; /* Transiciones suaves */
+    justify-content: space-between;
+    width: 100%; /* Asegura que ocupe todo el ancho */
 }
 
-.navegacion__enlace:hover {
-    border-color: grey; /* Borde visible en hover */
-    background-color: #e0e0e0; /* Fondo más oscuro en hover */
+.navegacion__menu p {
+    margin: 0;
+    flex-grow: 1; /* Ocupa el espacio restante */
+    text-align: left; /* Alinea el texto del párrafo a la izquierda */
+}
+
+.navegacion__menu button {
+    margin-left: auto; /* Empuja el botón hacia la derecha */
+    background-color: #ff4d4f; /* Rojo suave */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.navegacion__menu button:hover {
+    background-color: #e63946; /* Rojo más oscuro al pasar el ratón */
 }

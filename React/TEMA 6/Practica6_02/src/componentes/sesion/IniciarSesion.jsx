@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
 import {contextoSesion} from '../../contextos/ProveedorSesion.jsx';
+import './IniciarSesion.css'
 
 const IniciarSesión = () => {
-    const {actualizarDato, iniciarSesion} = useContext(contextoSesion);
+    const {actualizarDato, iniciarSesion, recordarPassword} = useContext(contextoSesion);
     return (
         <>
             <div className='cuentaUsuario'>
@@ -36,6 +37,13 @@ const IniciarSesión = () => {
                 >
                 Iniciar sesión
                 </button>
+                <p className='recordarPassword'
+                    onClick={()=>{
+                        recordarPassword();
+                    }}
+                >
+                    No recuerdo la contraseña.
+                </p>
             </div>
         </>
     )

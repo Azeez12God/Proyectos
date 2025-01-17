@@ -1,0 +1,12 @@
+.recordarPassword {
+    font-size: 1rem; /* Tamaño de fuente */
+    color: #007BFF; /* Azul suave */
+    text-decoration: underline; /* Subrayado para indicar que es interactivo */
+    cursor: pointer; /* Cambia el cursor a una mano para indicar clic */
+    transition: color 0.3s ease, text-decoration 0.3s ease; /* Transiciones suaves */
+}
+
+.recordarPassword:hover {
+    color: #0056b3; /* Azul más oscuro al pasar el ratón */
+    text-decoration: none; /* Quita el subrayado al hacer hover */
+}

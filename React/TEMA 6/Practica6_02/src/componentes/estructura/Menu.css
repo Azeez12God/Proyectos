@@ -1,7 +1,7 @@
 #menu {
     width: 100%;
     display: flex;
-    justify-content: center; /* Alinea los enlaces al inicio */
+    justify-content: start; /* Alinea los enlaces al inicio */
     align-items: center;
     border: 1px solid black;
     gap: 10px; /* Espaciado uniforme entre los enlaces */
