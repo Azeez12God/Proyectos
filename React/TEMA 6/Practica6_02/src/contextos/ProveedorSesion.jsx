@@ -7,6 +7,7 @@ const ProveedorSesion = ({children}) => {
 
     const navegar = useNavigate();
 
+    // Estados iniciales.
     const datosSesionInicial = {
         email: "",
         password: "",
@@ -16,12 +17,15 @@ const ProveedorSesion = ({children}) => {
     const errorUsuarioInicial = "";
     const sesionIniciadaInicial = false;
 
-    /** Estados para proveer. */
+    // Estados para proveer.
     const [datosSesion, setDatosSesion] = useState(datosSesionInicial);
     const [errorUsuario, setErrorUsuario] = useState(errorUsuarioInicial);
     const [sesionIniciada, setSesionIniciada] = useState(sesionIniciadaInicial);
     const [usuario, setUsuario] = useState(usuarioInicial);
 
+    // Funciones para proveer.
+
+    // Función para crear una cuenta en supabase mediante el correo electrónico y la contraseña.
     const crearCuenta = async () => {
         try{
             const {data, error} = await supabaseConexion.auth.signUp({
@@ -41,6 +45,7 @@ const ProveedorSesion = ({children}) => {
         }
     };
 
+    // Función para iniciar sesión en supabase mediante el correo electrónico y la contraseña.
     const iniciarSesion = async () => {
         try{
             const {data, error} = await supabaseConexion.auth.signInWithPassword({
@@ -61,6 +66,7 @@ const ProveedorSesion = ({children}) => {
         }
     };
 
+    // Función para cerrar la sesión en supabase.
     const cerrarSesion = async () => {
         try{
             await supabaseConexion.auth.signOut();
@@ -72,6 +78,7 @@ const ProveedorSesion = ({children}) => {
         }
     };
 
+    // Función para recordar la contraseña mediante el correo electrónico.
     const recordarPassword = async () => {
         try{
             if(datosSesion.email){
@@ -92,6 +99,7 @@ const ProveedorSesion = ({children}) => {
         }
     };
 
+    // Función para obtener el usuario.
     const obtenerUsuario = async () => {
         try {
             const { data, error } = await supabaseConexion.auth.getUser();
@@ -109,12 +117,14 @@ const ProveedorSesion = ({children}) => {
         }
     };
 
+    // Función para actualizar los datos del usuario.
     const actualizarDato = (evento) => {
         const { name, value } = evento.target;
         setDatosSesion({ ...datosSesion, [name]: value });
     };
 
 
+    // Efecto para comprobar si el usuario está autenticado.
     useEffect(()=>{
         const suscripcion = supabaseConexion.auth.onAuthStateChange(
             (evento, sesion) => {
@@ -131,6 +141,7 @@ const ProveedorSesion = ({children}) => {
         );
     }, [])
 
+    // Datos a proveer.
     const datosProveer = {
         errorUsuario,
         crearCuenta,

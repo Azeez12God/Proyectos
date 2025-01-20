@@ -13,7 +13,7 @@ const Login = () => {
         <CrearCuenta/>
         <IniciarSesion/>
       </div>
-      <Errores>{errorUsuario ? errorUsuario : ""}</Errores>
+      <Errores>{errorUsuario && errorUsuario}</Errores>
     </>
   );
 };
