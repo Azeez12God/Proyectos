@@ -5,6 +5,7 @@ import Menu from "./componentes/estructura/Menu.jsx";
 import Contenido from "./componentes/estructura/Contenido.jsx";
 import Pie from "./componentes/estructura/Pie.jsx";
 import RutasUT06 from "./componentes/rutas/RutasUT06.jsx";
+import ProveedorProductos from "./contextos/ProveedorProductos.jsx";
 
 function App() {
   return (
@@ -12,9 +13,11 @@ function App() {
       <ProveedorSesion>
         <Cabecera/>
         <Menu/>
-        <Contenido>
-          <RutasUT06/>
-        </Contenido>
+        <ProveedorProductos>
+          <Contenido>
+            <RutasUT06/>
+          </Contenido>
+        </ProveedorProductos>
         <Pie/>
       </ProveedorSesion>
     </>

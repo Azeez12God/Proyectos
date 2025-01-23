@@ -11,6 +11,13 @@ const Menu = () => {
                 <Link className='navegacion__enlace' to='/'>
                     Inicio
                 </Link>
+
+                {sesionIniciada &&
+                    <Link className='navegacion__enlace' to='/productos'>
+                        Productos
+                    </Link>
+                }
+
                 {!sesionIniciada && 
                     <Link className='navegacion__enlace' to='/login'>
                         Login

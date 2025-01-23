@@ -1,0 +1,8 @@
+.listadoProducto_producto{
+    text-align: left;
+}
+
+.listadoProducto_producto:hover{
+    color: red;
+    cursor: pointer;
+}
