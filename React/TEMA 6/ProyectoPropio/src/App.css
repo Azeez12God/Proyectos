@@ -1,0 +1,13 @@
+/* Estilos generales */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.contenedor-contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
