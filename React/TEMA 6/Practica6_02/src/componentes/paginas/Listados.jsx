@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import ListadoProductos from '../listados/ListadoProductos.jsx'
 import { contextoProductos } from '../../contextos/ProveedorProductos.jsx'
 import './Listados.css'
+import ListadoEstadisticas from '../listados/ListadoEstadisticas.jsx'
 
 const Listados = () => {
     const {filtrarProductosNombre, cargarProductos, filtrarProductosPrecio, filtrarProductosPeso, ordenarProductosNombre, ordenarProductosPrecio, ordenarProductosPeso} = useContext(contextoProductos);
@@ -53,6 +54,8 @@ const Listados = () => {
                     <ListadoProductos/>
                 </div>
             </div>
+
+            <ListadoEstadisticas/>
         </>
     )
 }

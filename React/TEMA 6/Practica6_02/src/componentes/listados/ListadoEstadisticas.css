@@ -1,0 +1,26 @@
+.listado_estadisticas {
+    background-color: #f9f9f9; /* Fondo claro */
+    border: 1px solid #ddd; /* Borde sutil */
+    border-radius: 8px; /* Esquinas redondeadas */
+    padding: 16px; /* Espaciado interno */
+    max-width: 400px; /* Ancho máximo */
+    margin: 20px auto; /* Centrado horizontal y separación vertical */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    font-family: Arial, sans-serif; /* Fuente legible */
+    color: #333; /* Color de texto */
+}
+
+.listado_estadisticas p {
+    margin: 8px 0; /* Separación entre párrafos */
+    font-size: 16px; /* Tamaño de fuente adecuado */
+    line-height: 1.5; /* Altura de línea cómoda */
+}
+
+.listado_estadisticas p:nth-child(1) {
+    font-weight: bold; /* Resalta el primer párrafo */
+    color: #007BFF; /* Color azul para énfasis */
+}
+
+.listado_estadisticas p:nth-child(2) {
+    color: #28a745; /* Color verde para el precio medio */
+}

@@ -1,24 +1,19 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { supabaseConexion } from '../config/supabase.js';
 
+// Crear contexto de productos
 const contextoProductos = createContext();
 
 const ProveedorProductos = ({children}) => {
     const listadoInicial = [];
     const errorInicial = "";
-    const productoInicial = {
-        nombre: "",
-        peso:"",
-        precio:"",
-        imagen:"",
-        descripcion:""
-    };
 
+    // Estados para productos y errores
     const [listadoProductos, setListadoProductos] = useState(listadoInicial);
     const [errorProductos, setErrorProductos] = useState(errorInicial);
-    const [producto, setProducto] = useState(productoInicial);
     const [productosFiltrados, setProductosFiltrados] = useState([]);
 
+    // Obtener productos de la base de datos
     const obtenerListado = async () => {
         try{
             const {data, error} = await supabaseConexion.from("Productos").select("*");
@@ -30,8 +25,10 @@ const ProveedorProductos = ({children}) => {
         }
     };
 
+    // Cargar todos los productos
     const cargarProductos = () => { setProductosFiltrados(listadoProductos)};
 
+    // Filtrar productos por nombre
     const filtrarProductosNombre = (nombre) => {
         let filtrarNombre = listadoProductos.filter((producto)=>{
             return producto.nombre.toLowerCase().includes(nombre.toLowerCase());
@@ -40,6 +37,7 @@ const ProveedorProductos = ({children}) => {
         setProductosFiltrados(filtrarNombre);
     }
 
+    // Filtrar productos por precio
     const filtrarProductosPrecio = (precio) => {
         let filtrarPrecio = listadoProductos.filter((producto)=>{
             return producto.precio.toString().includes(precio);
@@ -48,6 +46,7 @@ const ProveedorProductos = ({children}) => {
         setProductosFiltrados(filtrarPrecio);
     }
 
+    // Filtrar productos por peso
     const filtrarProductosPeso = (peso) => {
         let filtrarPeso = listadoProductos.filter((producto)=>{
             return producto.peso.toString().includes(peso);
@@ -56,6 +55,7 @@ const ProveedorProductos = ({children}) => {
         setProductosFiltrados(filtrarPeso);
     }
 
+    // Ordenar productos por nombre
     const ordenarProductosNombre = () => {
         let ordenarPorNombre = [...listadoProductos].sort((a, b)=>{
             return a.nombre.toLowerCase().localeCompare(b.nombre.toLowerCase())
@@ -64,6 +64,7 @@ const ProveedorProductos = ({children}) => {
         setProductosFiltrados(ordenarPorNombre);
     }
 
+    // Ordenar productos por precio
     const ordenarProductosPrecio = () => {
         let ordenarPorPrecio = [...listadoProductos].sort((a,b)=>{
             return a.precio - b.precio
@@ -72,6 +73,7 @@ const ProveedorProductos = ({children}) => {
         setProductosFiltrados(ordenarPorPrecio);
     }
 
+    // Ordenar productos por peso
     const ordenarProductosPeso = () => {
         let ordenarPorPeso = [...listadoProductos].sort((a,b)=>{
             return a.peso - b.peso
@@ -80,6 +82,7 @@ const ProveedorProductos = ({children}) => {
         setProductosFiltrados(ordenarPorPeso);
     }
 
+    // Datos a proveer en el contexto
     const datosProveer = {
         listadoProductos,
         errorProductos,
@@ -93,6 +96,7 @@ const ProveedorProductos = ({children}) => {
         ordenarProductosPeso
     };
 
+    // Efecto para cargar productos al montar el componente
     useEffect(()=>{
         obtenerListado();
     }, [])

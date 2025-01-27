@@ -4,7 +4,7 @@ import Cabecera from "./componentes/estructura/Cabecera.jsx";
 import Menu from "./componentes/estructura/Menu.jsx";
 import Contenido from "./componentes/estructura/Contenido.jsx";
 import Pie from "./componentes/estructura/Pie.jsx";
-import RutasUT06 from "./componentes/rutas/RutasUT06.jsx";
+import Rutas from "./componentes/rutas/Rutas.jsx";
 import ProveedorProductos from "./contextos/ProveedorProductos.jsx";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         <Menu/>
         <ProveedorProductos>
           <Contenido>
-            <RutasUT06/>
+            <Rutas/>
           </Contenido>
         </ProveedorProductos>
         <Pie/>

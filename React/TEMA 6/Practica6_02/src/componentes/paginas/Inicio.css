@@ -1,15 +1,64 @@
+/* Estilo general para el componente Inicio */
 .inicio__columnas {
     display: flex;
-    flex-direction: row;
-    margin-top: 20px;
-}
-
-.inicio__columna {
-    margin: 15px;
-    text-align: justify;
-    width: 50%;
-}
-
-.inicio__terminal{
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 1rem 0;
+  }
+  
+  .inicio__columna {
+    background-color: #f9f9f9; /* Fondo suave */
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    line-height: 1.6;
+  }
+  
+  .inicio__columna strong {
+    color: #2a9d8f; /* Color destacado para palabras en negrita */
+  }
+  
+  .inicio__columna em {
+    color: #264653; /* Color destacado para palabras en cursiva */
+    font-style: italic;
+  }
+  
+  .inicio__terminal {
     font-family: 'Courier New', Courier, monospace;
-}
+    background-color: #e9ecef; /* Fondo gris claro */
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    color: #495057;
+    display: inline-block;
+    margin-top: 1rem;
+  }
+  
+  /* Estilo del encabezado */
+  h2 {
+    font-size: 1.8rem;
+    color: #264653;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #2a9d8f;
+    padding-bottom: 0.5rem;
+  }
+  
+  /* Estilo de la lista ordenada */
+  ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+  }
+  
+  ol li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  /* Ajustes generales */
+  body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+  }
+  
