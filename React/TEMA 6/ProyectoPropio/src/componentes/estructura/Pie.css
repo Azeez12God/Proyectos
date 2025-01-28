@@ -1,0 +1,31 @@
+.pie {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    position: relative; /* Cambiado de fixed a relative */
+    bottom: 0;
+}
+
+.pie p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.pie-enlaces {
+    margin-top: 0.5rem;
+}
+
+.pie-enlace {
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.pie-enlace:hover {
+    color: #0056b3;
+}

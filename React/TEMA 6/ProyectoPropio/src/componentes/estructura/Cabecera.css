@@ -1,42 +1,41 @@
 /* Estilos para la cabecera */
 .cabecera {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #007bff;
-    color: white;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .cabecera h1 {
-    font-size: 1.5rem;
-    margin: 0;
-  }
-  
-  .cabecera p {
-    margin: 0;
-    font-size: 1rem;
-  }
-  
-  .cabecera a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    padding: 0.5rem 1rem;
-    background-color: #0056b3;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .cabecera a:hover {
-    background-color: #003f8a;
-  }
-  
-  /* Para botones o textos adicionales */
-  .cabecera .boton-derecha {
-    margin-left: auto;
-    font-size: 1rem;
-    text-align: right;
-  }  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007bff;
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cabecera h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.cabecera .usuario-sesion {
+  display: flex;
+  align-items: center;
+}
+
+.cabecera p {
+  margin: 0;
+  font-size: 1rem;
+  margin-right: 10px; /* Espacio entre el saludo y el botón */
+}
+
+.cabecera a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  background-color: #0056b3;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.cabecera a:hover {
+  background-color: #003f8a;
+}

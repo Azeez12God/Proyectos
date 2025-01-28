@@ -1,0 +1,20 @@
+.cerrarsesion_contenedor {
+    display: flex;
+    align-items: center;
+}
+
+.cerrarsesion_boton {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10px; /* Espacio entre el saludo y el botón */
+}
+
+.cerrarsesion_boton:hover {
+    background-color: #cc0000;
+}

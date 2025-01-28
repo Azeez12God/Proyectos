@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { contextoSesion } from '../../contextos/ProveedorSesion.jsx';
 
-const IniciarSesion = () => {
-    const { actualizarDato, iniciarSesion, recordarPassword } = useContext(contextoSesion);
+const CrearCuenta = () => {
+    const { crearCuenta, actualizarDato } = useContext(contextoSesion);
 
     return (
         <div className="cuentaUsuario">
-            <h2>Inicia sesión</h2>
+            <h2>Crea una nueva cuenta</h2>
             <label htmlFor="email">Correo electrónico</label>
             <input
                 type="email"
@@ -28,24 +28,15 @@ const IniciarSesion = () => {
                 }}
             />
             <button
-                type="button"
                 className="botonSesion"
                 onClick={(e) => {
-                    iniciarSesion();
+                    crearCuenta();
                 }}
             >
-                Iniciar sesión
+                Crear cuenta
             </button>
-            <p
-                className="recordarPassword"
-                onClick={() => {
-                    recordarPassword();
-                }}
-            >
-                No recuerdo la contraseña.
-            </p>
         </div>
     );
 };
 
-export default IniciarSesion;
+export default CrearCuenta;

@@ -1,62 +1,63 @@
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f9f9f9;
-  }
-  
-  .login-form {
-    width: 300px;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .login-form h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    text-align: center;
-  }
-  
-  .login-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  .login-form input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
-  
-  .login-form .botonSesion {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .login-form .botonSesion:hover {
-    background-color: #0056b3;
-  }
-  
-  .login-form .recordarPassword {
-    margin-top: 10px;
-    text-align: center;
-    color: #007bff;
-    cursor: pointer;
-  }
-  
-  .login-form .recordarPassword:hover {
-    text-decoration: underline;
-  }
+.cuentaUsuario {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 60px); /* Ajusta el valor según la altura de tu cabecera */
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+.cuentaUsuario h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.cuentaUsuario label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.cuentaUsuario input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+.cuentaUsuario .botonSesion {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.cuentaUsuario .botonSesion:hover {
+  background-color: #0056b3;
+}
+
+.cuentaUsuario .recordarPassword {
+  margin-top: 10px;
+  text-align: center;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.cuentaUsuario .recordarPassword:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
