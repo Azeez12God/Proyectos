@@ -1,0 +1,48 @@
+.formularioProducto-contenedor {
+    background-color: #fff;
+    padding: 40px; /* Más espacio interior */
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Esquinas más redondeadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más visible */
+    margin: 40px auto; /* Más espacio arriba y abajo */
+    max-width: 600px; /* Limitar el ancho */
+    width: 90%; /* Hacerlo responsivo */
+}
+
+.formularioProducto-contenedor label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 14px; /* Aumentar tamaño de fuente */
+}
+
+.formularioProducto-contenedor input,
+.formularioProducto-contenedor textarea {
+    width: 100%;
+    padding: 15px; /* Espacio interior más amplio */
+    margin-bottom: 20px; /* Más espacio entre campos */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px; /* Texto más grande */
+}
+
+.formularioProducto-contenedor textarea {
+    height: 100px; /* Aumentar altura por defecto */
+    resize: vertical; /* Permitir ajuste de tamaño vertical */
+}
+
+.formularioProducto-contenedor button {
+    width: 100%;
+    padding: 15px; /* Botón más grande */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px; /* Texto del botón más grande */
+    font-weight: bold;
+}
+
+.formularioProducto-contenedor button:hover {
+    background-color: #0056b3;
+}
