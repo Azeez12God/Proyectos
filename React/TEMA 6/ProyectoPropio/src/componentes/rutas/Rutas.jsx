@@ -4,6 +4,7 @@ import Inicio from '../paginas/Inicio.jsx'
 import Login from '../paginas/Login.jsx'
 import Error from '../paginas/Error.jsx'
 import Productos from '../paginas/Productos.jsx'
+import FormularioProductos from '../admin_productos/FormularioProductos.jsx'
 
 const Rutas = () => {
     return (
@@ -12,6 +13,7 @@ const Rutas = () => {
                 <Route path='/' element={<Inicio />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/productos' element={<Productos/>}/>
+                <Route path='/insertar_producto' element={<FormularioProductos/>}/>
                 <Route path='*' element={<Error/>} />
             </Routes>
         </>

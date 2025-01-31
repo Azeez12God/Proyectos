@@ -7,11 +7,19 @@ const contextoProductos = createContext();
 const ProveedorProductos = ({children}) => {
     const listadoInicial = [];
     const errorInicial = "";
+    const productoInicial = {
+        name: "",
+        peso: 0,
+        precio: 0,
+        descripcion: "",
+        imagen: ""
+    };
 
     // Estados para productos y errores
     const [listadoProductos, setListadoProductos] = useState(listadoInicial);
     const [errorProductos, setErrorProductos] = useState(errorInicial);
     const [productosFiltrados, setProductosFiltrados] = useState([]);
+    const [producto, setProducto] = useState(productoInicial);
 
     // Obtener productos de la base de datos
     const obtenerListado = async () => {
@@ -82,6 +90,12 @@ const ProveedorProductos = ({children}) => {
         setProductosFiltrados(ordenarPorPeso);
     }
 
+    // Actualizar producto en el formulario.
+    const actualizarProducto = (evento) => {
+        const { name, value } = evento.target;
+        setProducto({ ...producto, [name]: value });
+    };
+
     // Datos a proveer en el contexto
     const datosProveer = {
         listadoProductos,
@@ -93,7 +107,9 @@ const ProveedorProductos = ({children}) => {
         filtrarProductosPeso,
         ordenarProductosNombre,
         ordenarProductosPrecio,
-        ordenarProductosPeso
+        ordenarProductosPeso,
+        actualizarProducto,
+        producto
     };
 
     // Efecto para cargar productos al montar el componente

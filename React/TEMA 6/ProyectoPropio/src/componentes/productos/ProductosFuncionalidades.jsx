@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { contextoProductos } from '../../contextos/ProveedorProductos';
 import './ProductosFuncionalidades.css'
+import { Link } from 'react-router-dom';
 
 const ProductosFuncionalidades = () => {
     const {cargarProductos, filtrarProductosNombre, filtrarProductosPrecio, filtrarProductosPeso, 
@@ -9,6 +10,9 @@ const ProductosFuncionalidades = () => {
 
     return (
         <>
+            <div className='botones-navegacion'>
+                <Link to='/insertar_producto'>Insertar</Link>
+            </div>
             <button onClick={()=>{
                 cargarProductos();
             }}>
