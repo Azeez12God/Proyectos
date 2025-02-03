@@ -6,18 +6,20 @@ import { useNavigate } from 'react-router-dom';
 
 const Producto = ({datos}) => {
     const {id, nombre, precio, descripcion, peso, imagen} = datos;
-    const {borrarProducto} = useContext(contextoProductos);
+    const {borrarProducto, obtenerProducto} = useContext(contextoProductos);
     const navegar = useNavigate(null);
 
     const manejarClick = (evento) => {
         if(evento.target.classList.contains('producto-borrar')){
             const borrar = confirm(`¿Estás seguro de que quieres borrar ${nombre}?`);
             if(borrar){
-                borrarProducto(evento.target.closest('.producto-contenedor').id);
+                borrarProducto(id);
             }
         }
 
         if(evento.target.classList.contains('producto-editar')){
+            obtenerProducto(id);
+            console.log(id);
             navegar(`/editar_producto`);
         }
     }
