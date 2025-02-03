@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ProductosFuncionalidades from '../productos/ProductosFuncionalidades.jsx'
 import ListaProductos from '../productos/ListaProductos.jsx'
 import './Productos.css'
 import ListadoEstadisticas from '../productos/ListadoEstadisticas.jsx'
+import { contextoProductos } from '../../contextos/ProveedorProductos.jsx'
+import Errores from '../estructura/Errores.jsx'
 
 const Productos = () => {
+    const {errorProducto} = useContext(contextoProductos);
     return (
         <>
             <div className='productos-contenedor'>
@@ -17,6 +20,7 @@ const Productos = () => {
                 <div className='productos-estadisticas'>
                     <ListadoEstadisticas/>
                 </div>
+                {errorProducto && <Errores>{errorProducto}</Errores>}
             </div>
         </>
     )

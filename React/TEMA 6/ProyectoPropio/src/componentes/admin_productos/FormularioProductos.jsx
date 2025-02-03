@@ -1,30 +1,34 @@
 import React, { useContext } from 'react'
-import { contextoProductos } from '../../contextos/ProveedorProductos';
+import { contextoProductos } from '../../contextos/ProveedorProductos.jsx';
 import './FormularioProductos.css'
+import Errores from '../estructura/Errores';
 
-const FormularioProductos = () => {
-    const {producto, actualizarProducto} = useContext(contextoProductos);
+const FormularioProductos = ({editar}) => {
+    const {producto, actualizarProducto, insertarProducto, errorProductos, editarProducto} = useContext(contextoProductos);
 
     return (
         <>
             <div className='formularioProducto-contenedor'>
-                <label htmlFor="name">Nombre: </label>
-                <input type="text" name='name' value={producto.nombre || ""} 
+                <label htmlFor="nombre">Nombre: </label>
+                <input type="text" name='nombre' value={producto.nombre || ''} 
                     onChange={(e)=>actualizarProducto(e)} />
-                <label htmlFor="price">Precio: </label>
-                <input type="number" name='price' value={producto.precio || ""} 
+                <label htmlFor="precio">Precio: </label>
+                <input type="number" name='precio' value={producto.precio || ''} 
                     onChange={(e)=>actualizarProducto(e)} />
-                <label htmlFor="weight">Peso: </label>
-                <input type="number" name='weight' value={producto.peso || ""} 
+                <label htmlFor="peso">Peso: </label>
+                <input type="number" name='peso' value={producto.peso || ''} 
                     onChange={(e)=>actualizarProducto(e)} />
-                <label htmlFor="description">Descripción: </label>
-                <textarea name='description' value={producto.descripcion || ""} 
+                <label htmlFor="descripcion">Descripción: </label>
+                <textarea name='descripcion' value={producto.descripcion || ''} 
                     onChange={(e)=>actualizarProducto(e)} />
-                <label htmlFor="image">URL imagen: </label>
-                <input type="text" name='image' value={producto.imagen || ""} 
+                <label htmlFor="imagen">URL imagen: </label>
+                <input type="text" name='imagen' value={producto.imagen || ''} 
                     onChange={(e)=>actualizarProducto(e)} />
+                {errorProductos && <Errores>{errorProductos}</Errores>}    
 
-                <button>Insertar</button>
+                <button onClick={()=>{editar ? editarProducto() : insertarProducto()}}>
+                    {editar ? "Editar" : "Insertar"}
+                </button>
             </div>
         </>
     )

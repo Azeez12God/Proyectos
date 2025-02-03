@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { supabaseConexion } from '../config/supabase.js';
+import { useNavigate } from 'react-router-dom';
 
 // Crear contexto de productos
 const contextoProductos = createContext();
@@ -8,7 +9,7 @@ const ProveedorProductos = ({children}) => {
     const listadoInicial = [];
     const errorInicial = "";
     const productoInicial = {
-        name: "",
+        nombre: "",
         peso: 0,
         precio: 0,
         descripcion: "",
@@ -20,6 +21,8 @@ const ProveedorProductos = ({children}) => {
     const [errorProductos, setErrorProductos] = useState(errorInicial);
     const [productosFiltrados, setProductosFiltrados] = useState([]);
     const [producto, setProducto] = useState(productoInicial);
+
+    const navegar = useNavigate(null);
 
     // Obtener productos de la base de datos
     const obtenerListado = async () => {
@@ -96,6 +99,45 @@ const ProveedorProductos = ({children}) => {
         setProducto({ ...producto, [name]: value });
     };
 
+    const insertarProducto = async () => {
+        try{
+            producto.id = listadoProductos.length + 1;
+            const {data, error} = await supabaseConexion.from("Productos").insert(producto);
+            if(error){ setErrorProductos(error.message);}
+            else{
+                setProducto(productoInicial);
+                obtenerListado();
+                navegar("/productos");
+            }
+        }
+        catch(error){
+            setErrorProductos(error.message);
+        }
+    };
+
+    const borrarProducto = async (id) => {
+        try{
+            const {error, count} = await supabaseConexion.from("Productos").delete().eq("id", id);
+
+            if(error){ setErrorProductos(error);}
+            else if(count===0){ setErrorProductos("No se ha podido borrar el producto");}
+            else{obtenerListado();}
+        }
+        catch(error){
+            setErrorProductos(error.message);
+        }
+    };
+
+    const editarProducto = async () => {
+        try{
+            const cosas = await supabaseConexion.from("Productos").update(producto).eq("id", producto.id);
+            console.log(cosas);
+        }
+        catch(error){
+            setErrorProductos(error.message);
+        }
+    }
+
     // Datos a proveer en el contexto
     const datosProveer = {
         listadoProductos,
@@ -109,7 +151,10 @@ const ProveedorProductos = ({children}) => {
         ordenarProductosPrecio,
         ordenarProductosPeso,
         actualizarProducto,
-        producto
+        producto,
+        insertarProducto,
+        borrarProducto,
+        editarProducto
     };
 
     // Efecto para cargar productos al montar el componente

@@ -8,6 +8,7 @@
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.2s ease-in-out;
+    position: relative;
 }
 
 .producto-contenedor:hover {
@@ -17,10 +18,10 @@
 .producto-imagen {
     width: 100%;
     height: 180px;
-    object-fit: contain; /* Muestra la imagen completa sin recortes */
+    object-fit: contain;
     object-position: center;
     border-radius: 10px;
-    background-color: #f8f8f8; /* Fondo por si la imagen no ocupa todo */
+    background-color: #f8f8f8;
 }
 
 .produco-nombre {
@@ -44,4 +45,22 @@
     font-size: 0.9rem;
     color: #333;
     margin-top: 8px;
+}
+
+.producto-botones {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.producto-botones img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.producto-botones img:hover {
+    transform: scale(1.2);
 }
