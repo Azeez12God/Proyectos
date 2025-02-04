@@ -9,7 +9,10 @@ const Menu = () => {
         <>
             <nav id='menu'>
                 <Link to='/' className='navegacion-enlace'>Inicio</Link>
-                {sesionIniciada && <Link to='/productos' className='navegacion-enlace'>Productos</Link>}
+                {sesionIniciada && <>
+                    <Link to='/productos' className='navegacion-enlace'>Productos</Link>
+                    <Link to='/listas' className='navegacion-enlace'>Listas de la compra</Link>
+                </>}
             </nav>
         </>
     )
