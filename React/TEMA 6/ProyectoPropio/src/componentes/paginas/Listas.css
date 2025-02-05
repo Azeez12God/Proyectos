@@ -1,0 +1,12 @@
+.listas-listado {
+    display: flex;
+    flex-wrap: wrap;            
+    gap: 10px;                   
+    justify-content: center;  
+    padding: 10px;
+  }
+
+.listas-listado:hover{
+    cursor: pointer;
+}
+  

@@ -1,44 +1,51 @@
-/* Estilos para el contenedor de la lista */
 .lista-contenedor {
+    width: 250px;                 /* Ancho fijo para la tarjeta */
+    padding: 8px 12px;            /* Padding reducido para que no se vea tan alta */
+    margin: 10px;                 /* Espacio entre tarjetas */
+    box-sizing: border-box;       /* Incluye padding y border en el ancho */
+    
     display: flex;
+    flex-direction: column;       /* Organiza los elementos en columna */
     align-items: center;
-    border: 2px solid #007bff;
+    justify-content: center;
+    
+    border: 1px solid #007bff;
     border-radius: 8px;
-    padding: 10px 20px;
     background-color: #e9ecef;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
   }
   
+  /* Efecto hover para las tarjetas */
   .lista-contenedor:hover {
     transform: scale(1.02);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   }
   
-  /* Imagen del carrito */
+  /* Imagen del carrito ajustada a un tamaño más pequeño */
   .lista-carrito {
-    width: 50px;
-    height: 50px;
-    margin-right: 20px;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
   }
   
-  /* Detalles de la lista */
+  /* Detalles de la lista centrados */
   .lista-detalles {
-    display: flex;
-    flex-direction: column;
+    text-align: center;
   }
   
+  /* Título con tamaño reducido */
   .lista-nombre {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
-    margin: 0;
+    margin: 4px 0;
     color: #333;
   }
   
+  /* Fecha con tamaño de fuente más pequeño */
   .lista-fecha {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #555;
-    margin: 5px 0 0 0;
+    margin: 2px 0;
   }
   
