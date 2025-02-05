@@ -30,7 +30,6 @@ const ProveedorProductos = ({children}) => {
             const {data, error} = await supabaseConexion.from("Productos").select("*");
             setListadoProductos(data);
             setProductosFiltrados(data);
-            console.log(data);  
         }
         catch(error){
             setErrorProductos(error.message);

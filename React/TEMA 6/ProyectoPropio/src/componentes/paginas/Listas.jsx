@@ -1,10 +1,12 @@
-import React, { useContext } from 'react'
+import React from 'react'
+import ListadoListas from '../listas/ListadoListas.jsx'
 
 const Listas = () => {
-    const {} = useContext()
     return (
         <>
-            
+            <div className='listas-contenedor'>
+                <ListadoListas/>
+            </div>
         </>
     )
 }

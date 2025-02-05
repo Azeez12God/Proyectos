@@ -1,0 +1,44 @@
+/* Estilos para el contenedor de la lista */
+.lista-contenedor {
+    display: flex;
+    align-items: center;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    padding: 10px 20px;
+    background-color: #e9ecef;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .lista-contenedor:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Imagen del carrito */
+  .lista-carrito {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+  }
+  
+  /* Detalles de la lista */
+  .lista-detalles {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .lista-nombre {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+  }
+  
+  .lista-fecha {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 5px 0 0 0;
+  }
+  
