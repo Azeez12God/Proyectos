@@ -1,0 +1,41 @@
+.producto-agregar-contenedor{
+    width: 100%;
+    max-width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.producto-agregar-contenedor:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.producto-agregar-imagen-contenedor {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-grow: 1; /* Ocupa más espacio en el contenedor */
+}
+
+.producto-agregar-imagen {
+    max-width: 60%;
+    max-height: 60%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+
+.producto-add {
+    font-size: 18px;
+    font-weight: bold;
+}

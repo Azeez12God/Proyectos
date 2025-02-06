@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import useProveedorListas from '../hooks/useProveedorListas';
-import ListaProductosLista from '../listas_productos/ListaProductosLista';
+import ListaProductosLista from '../listas_productos/ListaProductosLista.jsx';
 import './ListaDetalle.css'
+import useProveedorCompra from '../hooks/useProveedorCompra.js';
 
 const ListaDetalle = () => {
     const {id} = useParams();
-    const {obtenerProductosLista, obtenerLista, lista} = useProveedorListas();
+    const {obtenerLista, lista} = useProveedorListas();
+    const {obtenerProductosLista} = useProveedorCompra();
 
     useEffect(()=>{
         obtenerProductosLista(id);

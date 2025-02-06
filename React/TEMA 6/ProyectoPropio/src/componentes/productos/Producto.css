@@ -4,7 +4,6 @@
     border: 1px solid #ddd;
     border-radius: 10px;
     padding: 15px;
-    background-color: #fff;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.2s ease-in-out;
@@ -24,7 +23,7 @@
     background-color: #f8f8f8;
 }
 
-.produco-nombre {
+.producto-nombre {
     font-size: 1.2rem;
     font-weight: bold;
     margin: 10px 0;
@@ -50,6 +49,7 @@
 .producto-botones {
     display: flex;
     justify-content: center;
+    align-items: center; /* Alinea verticalmente los elementos */
     gap: 10px;
     margin-top: 10px;
 }
@@ -61,6 +61,17 @@
     transition: transform 0.2s ease-in-out;
 }
 
+#producto-quitar{
+    width: 10px;
+    height: 10px;
+}
+
 .producto-botones img:hover {
     transform: scale(1.2);
+}
+
+.producto-cantidad {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
 }

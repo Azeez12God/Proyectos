@@ -126,7 +126,7 @@ const ProveedorProductos = ({children}) => {
         try{
             const {error, count} = await supabaseConexion.from("Productos").delete().eq("id", id);
 
-            if(error){ setErrorProductos(error);}
+            if(error){ setErrorProductos(error.message);}
             else if(count===0){ setErrorProductos("No se ha podido borrar el producto");}
             else{obtenerListado();}
         }

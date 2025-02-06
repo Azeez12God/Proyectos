@@ -1,12 +1,16 @@
 .listas-listado {
-    display: flex;
-    flex-wrap: wrap;            
-    gap: 10px;                   
-    justify-content: center;  
-    padding: 10px;
-  }
-
-.listas-listado:hover{
-    cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
 }
-  
+
+.listas-listado a {
+  text-decoration: none; /* Eliminar subrayado */
+  color: inherit; /* Mantener el color del texto */
+}
+
+.listas-listado a:hover {
+  cursor: pointer;
+}

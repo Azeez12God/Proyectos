@@ -15,7 +15,6 @@ const ProveedorListas = ({children}) => {
 
     const [errorLista, setErrorLista] = useState(errorListaInicial);
     const [listadoListas, setListadoListas] = useState(listadoInicial);
-    const [productosLista, setProductosLista] = useState(productosListaInicial);
     const [lista, setLista] = useState(listaInicial);
 
     const obtenerListas = async () => { 
@@ -33,22 +32,6 @@ const ProveedorListas = ({children}) => {
         }
     };
 
-    const obtenerProductosLista = async (id) => {
-        try{
-            const {data, error} = await supabaseConexion.from('Listas_Productos').select('cantidad, Productos(*)').eq('id_lista', id);
-
-            if(error){
-                setErrorLista(error.message);
-            }
-            else{
-                setProductosLista(data);
-            }
-        }
-        catch(error){
-            setErrorLista(error.message);
-        }
-    };
-
     const obtenerLista = async (id) => {
         try{
             const {data, error} = await supabaseConexion.from('Listas').select('*').eq('id', id);
@@ -62,7 +45,8 @@ const ProveedorListas = ({children}) => {
         catch(error){
             setErrorLista(error.message);
         }
-    }
+    };
+
 
     useEffect(()=>{
         obtenerListas();
@@ -71,8 +55,6 @@ const ProveedorListas = ({children}) => {
     const datosProveer = {
         errorLista,
         listadoListas,
-        obtenerProductosLista,
-        productosLista,
         obtenerLista,
         lista
     };
