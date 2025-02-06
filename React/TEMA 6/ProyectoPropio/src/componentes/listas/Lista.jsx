@@ -2,7 +2,7 @@ import React from 'react';
 import './Lista.css';
 
 const Lista = ({ datos }) => {
-  const { fecha_creacion, nombre } = datos;
+  const { id, fecha_creacion, nombre } = datos;
 
   // Función para formatear la fecha
   const formatearFecha = (fecha) => {
@@ -14,7 +14,7 @@ const Lista = ({ datos }) => {
   };
 
   return (
-    <div className="lista-contenedor">
+    <div className="lista-contenedor" id={id}>
       <img
         src="https://cdn-icons-png.flaticon.com/512/107/107831.png"
         alt="Carrito de la compra"
