@@ -1,0 +1,9 @@
+.lista-productos{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+    max-height: 800px; /* Ajusta el tamaño máximo según tus necesidades */
+    overflow-y: auto; /* Habilita el scroll vertical */
+}

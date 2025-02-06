@@ -7,6 +7,7 @@ import Productos from '../paginas/Productos.jsx'
 import InsertarProducto from '../admin_productos/InsertarProducto.jsx'
 import EditarProducto from '../admin_productos/EditarProducto.jsx'
 import Listas from '../paginas/Listas.jsx'
+import ListaDetalle from '../paginas/ListaDetalle.jsx'
 
 const Rutas = () => {
     return (
@@ -18,6 +19,7 @@ const Rutas = () => {
                 <Route path='/insertar_producto' element={<InsertarProducto/>}/>
                 <Route path='/editar_producto' element={<EditarProducto/>}/>
                 <Route path='/listas' element={<Listas/>}/>
+                <Route path='/listas/:id' element={<ListaDetalle/>}/>
                 <Route path='*' element={<Error/>} />
             </Routes>
         </>

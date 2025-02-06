@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { supabaseConexion } from '../config/supabase.js';
 import { useNavigate } from 'react-router-dom';
+import { generarUuidAleatorio } from '../bibliotecas/biblioteca.js';
 
 // Crear contexto de productos
 const contextoProductos = createContext();
@@ -27,7 +28,7 @@ const ProveedorProductos = ({children}) => {
     // Obtener productos de la base de datos
     const obtenerListado = async () => {
         try{
-            const {data, error} = await supabaseConexion.from("Productos").select("*");
+            const {data, error} = await supabaseConexion.from("Productos").select("*").order("created_at", {ascending: true});
             setListadoProductos(data);
             setProductosFiltrados(data);
         }
@@ -107,8 +108,8 @@ const ProveedorProductos = ({children}) => {
 
     const insertarProducto = async () => {
         try{
-            producto.id = listadoProductos.length + 1;
-            const {data, error} = await supabaseConexion.from("Productos").insert(producto);
+            producto.id = generarUuidAleatorio();
+            const {error} = await supabaseConexion.from("Productos").insert(producto);
             if(error){ setErrorProductos(error.message);}
             else{
                 setProducto(productoInicial);

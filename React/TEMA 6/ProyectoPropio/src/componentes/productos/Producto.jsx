@@ -1,28 +1,29 @@
 import React, { useContext } from 'react'
 import './Producto.css'
 import { contextoProductos } from '../../contextos/ProveedorProductos.jsx';
-import FormularioProductos from '../admin_productos/FormularioProductos.jsx';
 import { useNavigate } from 'react-router-dom';
 
-const Producto = ({datos}) => {
+const Producto = ({datos, esListaCompra, manejarBorrado, cantidad}) => {
     const {id, nombre, precio, descripcion, peso, imagen} = datos;
     const {borrarProducto, obtenerProducto} = useContext(contextoProductos);
     const navegar = useNavigate(null);
 
     const manejarClick = (evento) => {
-        if(evento.target.classList.contains('producto-borrar')){
-            const borrar = confirm(`¿Estás seguro de que quieres borrar ${nombre}?`);
-            if(borrar){
-                borrarProducto(id);
+        if (evento.target.classList.contains('producto-borrar')) {
+            const mensaje = esListaCompra
+                ? `¿Estás seguro de que quieres eliminar ${nombre} de la lista de la compra?`
+                : `¿Estás seguro de que quieres borrar ${nombre}?`;
+            const borrar = confirm(mensaje);
+            if (borrar) {
+                esListaCompra ? manejarBorrado(id) : borrarProducto(id);
             }
         }
 
-        if(evento.target.classList.contains('producto-editar')){
+        if (!esListaCompra && evento.target.classList.contains('producto-editar')) {
             obtenerProducto(id);
-            console.log(id);
             navegar(`/editar_producto`);
         }
-    }
+    };
 
     return (
         <div className='producto-contenedor' id={id} onClick={(e)=>{manejarClick(e)}}>
@@ -32,7 +33,7 @@ const Producto = ({datos}) => {
             <p className='producto-peso'>{peso} kg</p>
             <p className='producto-descripcion'>{descripcion}</p>
             <div className='producto-botones'>
-                <img className='producto-editar' src='https://cdn-icons-png.flaticon.com/512/1159/1159633.png' alt='Editar producto'/>
+                {!esListaCompra ? <img className='producto-editar' src='https://cdn-icons-png.flaticon.com/512/1159/1159633.png' alt='Editar producto'/> : <p>{cantidad}</p>}
                 <img className='producto-borrar' src='https://cdn-icons-png.flaticon.com/512/6861/6861362.png' alt='Borrar producto'/>
             </div>
         </div>
