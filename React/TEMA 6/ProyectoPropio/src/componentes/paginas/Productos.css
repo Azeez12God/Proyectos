@@ -10,8 +10,8 @@
 
 .productos-listado {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajustado para que quepan más productos por fila */
+    gap: 20px; /* Ajustado el espacio entre productos */
     padding: 20px;
     justify-items: center;
     max-height: 800px; /* Ajusta el tamaño máximo según tus necesidades */

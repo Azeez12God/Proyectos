@@ -64,7 +64,7 @@ const ProveedorCompra = ({children}) => {
 
     const borrarProductoLista = async (id_producto, id_lista) => {
         try{
-            const {error, count} = supabaseConexion
+            const {error, count} = await supabaseConexion
             .from('Listas_Productos')
             .delete()
             .eq("id_producto", id_producto)
@@ -72,7 +72,7 @@ const ProveedorCompra = ({children}) => {
 
             if(error){ setErrorCompra(error.message);}
             else if(count===0){ setErrorCompra("No se ha podido borrar el producto");}
-            else{obtenerListado();}
+            else{obtenerProductosLista(id_lista);}
         }
         catch(error){
             setErrorCompra(error.message);

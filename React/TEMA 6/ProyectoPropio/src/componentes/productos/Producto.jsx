@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import useProveedorListas from '../hooks/useProveedorListas.js';
 import useProveedorCompra from '../hooks/useProveedorCompra.js'
 
-const Producto = ({datos, esListaCompra, cantidad}) => {
+const Producto = ({datos, esListaCompra, cantidad, agregarProducto}) => {
     const {id, nombre, precio, descripcion, peso, imagen} = datos;
     const {borrarProducto, obtenerProducto} = useContext(contextoProductos);
     const {lista} = useProveedorListas();
@@ -58,7 +58,7 @@ const Producto = ({datos, esListaCompra, cantidad}) => {
                         <img id='producto-quitar' alt='Bajar cantidad producto' src='https://cdn-icons-png.flaticon.com/512/25/25232.png'/>
                     </>
                 }
-                <img className='producto-borrar' src='https://cdn-icons-png.flaticon.com/512/6861/6861362.png' alt='Borrar producto'/>
+                {agregarProducto && <img className='producto-borrar' src='https://cdn-icons-png.flaticon.com/512/1214/1214428.png' alt='Borrar producto'/>}
             </div>
         </div>
     )

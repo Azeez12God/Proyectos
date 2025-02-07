@@ -5,18 +5,19 @@ import { generarUuidAleatorio } from '../../bibliotecas/biblioteca.js';
 import ProductoAgregar from '../productos/ProductoAgregar.jsx';
 import useProveedorCompra from '../hooks/useProveedorCompra.js';
 
-const ListaProductosLista = () => {
-    const {productosLista} = useProveedorCompra();
+const ListaProductosLista = ({agregando}) => {
+    const {productosLista, errorCompra} = useProveedorCompra();
 
     return (
         <>
-            {productosLista.length > 0 && Array.isArray(productosLista) ?      
+            {!agregando && <ProductoAgregar/>}
+            {productosLista.length > 0 && Array.isArray(productosLista) &&     
             productosLista.map((productolista)=>{
                 return <Producto key={generarUuidAleatorio()} datos={productolista.Productos} esListaCompra={true} cantidad={productolista.cantidad}/>
             })
-            : <Errores>No hay productos en la lista.</Errores>
             }
-            <ProductoAgregar/>
+
+            {errorCompra && <Errores>{errorCompra}</Errores>}
         </>
     )
 }
