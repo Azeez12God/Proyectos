@@ -11,9 +11,7 @@ const ListadoListas = () => {
             {listadoListas.length > 0 && Array.isArray(listadoListas) ?
             listadoListas.map((lista)=>{
                 return (
-                    <Link to={`/listas/${lista.id}`} key={lista.id}>
-                        <Lista datos={lista}/>
-                    </Link>
+                    <Lista datos={lista}/>              
                 )
             })
             : <Errores><h2>No hay listas creadas</h2></Errores>
