@@ -1,29 +1,35 @@
 import React from 'react';
 import './Lista.css';
+import ListaInfo from '../lista/ListaInfo';
+import useProveedorListas from '../hooks/useProveedorListas';
+import { useNavigate } from 'react-router-dom';
+import ListaBotones from '../lista/ListaBotones';
 
 const Lista = ({ datos }) => {
-  const { id, fecha_creacion, nombre } = datos;
+  const { id, nombre } = datos;
+  const {borrarLista} = useProveedorListas();
+  const navegar = useNavigate(null);
 
-  // Función para formatear la fecha
-  const formatearFecha = (fecha) => {
-    const fechaObj = new Date(fecha); // Crear un objeto Date
-    const dia = fechaObj.getDate();
-    const mes = fechaObj.getMonth() + 1; // Los meses comienzan en 0
-    const año = fechaObj.getFullYear();
-    return `${dia}/${mes}/${año}`;
-  };
+  const manejarClic = (evento) => {
+    if(evento.target.classList.contains("lista-borrar")){
+      evento.preventDefault();
+      evento.stopPropagation();
+      const mensaje = `¿Estás seguro de que quieres borrar ${nombre}?`;
+      const borrar = confirm(mensaje);
+      if (borrar) {
+        borrarLista(id);
+      };
+    }
+
+    if(evento.target.classList.contains("lista-contenedor")){
+      navegar(`/listas/${id}`);
+    }
+  }
 
   return (
-    <div className="lista-contenedor" id={id}>
-      <img
-        src="https://cdn-icons-png.flaticon.com/512/107/107831.png"
-        alt="Carrito de la compra"
-        className="lista-carrito"
-      />
-      <div className="lista-detalles">
-        <h2 className="lista-nombre">{nombre}</h2>
-        <h3 className="lista-fecha">{formatearFecha(fecha_creacion)}</h3>
-      </div>
+    <div className="lista-contenedor" id={id} onClick={(e)=>{manejarClic(e)}}>
+      <ListaInfo datos={datos}/>
+      <ListaBotones/>
     </div>
   );
 };

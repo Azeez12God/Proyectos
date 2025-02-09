@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react'
 import { supabaseConexion } from '../config/supabase';
-import useProveedorListas from '../componentes/hooks/useProveedorListas.js';
+import useProveedorProductos from '../componentes/hooks/useProveedorProductos.js';
 
 const contextoCompra = createContext();
 const ProveedorCompra = ({children}) => {
@@ -77,14 +77,91 @@ const ProveedorCompra = ({children}) => {
         catch(error){
             setErrorCompra(error.message);
         }
-    }
+    };
+
+    const insertarProductoLista = (producto) => {
+        // Verificar si el producto ya existe en la lista
+        const index = productosLista.findIndex(item => item.Productos.id === producto.id);
+    
+        if (index !== -1) {
+            // Si el producto ya está en la lista, actualizamos la cantidad
+            const listaActualizada = productosLista.map((item, i) => 
+                i === index ? { ...item, cantidad: item.cantidad + 1 } : item
+            );
+            setProductosLista(listaActualizada);
+        } else {
+            // Si el producto no está en la lista, lo agregamos con cantidad 1
+            const nuevoProducto = {
+                cantidad: 1,
+                Productos: producto
+            };
+            const listaActualizada = [...productosLista, nuevoProducto];
+            setProductosLista(listaActualizada);
+        }
+    };
+    
+    const quitarProductoLista = (producto) => {
+        // Verificar si el producto ya existe en la lista
+        const index = productosLista.findIndex(item => item.Productos.id === producto.id);
+    
+        if (index !== -1) {
+            const productoActualizado = productosLista[index];
+    
+            // Si la cantidad es mayor a 1, simplemente restamos 1
+            if (productoActualizado.cantidad > 1) {
+                const listaActualizada = productosLista.map((item, i) =>
+                    i === index ? { ...item, cantidad: item.cantidad - 1 } : item
+                );
+                setProductosLista(listaActualizada);
+            } else {
+                // Si la cantidad es 1, lo eliminamos de la lista
+                const listaActualizada = productosLista.filter((item, i) => i !== index);
+                setProductosLista(listaActualizada);
+            }
+        }
+    };
+
+    const confirmarCambios = async (id_lista) => {
+        try {
+            // Borrar todos los productos de la lista en la base de datos
+            const { error: deleteError } = await supabaseConexion
+                .from('Listas_Productos')
+                .delete()
+                .eq('id_lista', id_lista);
+    
+            if (deleteError) {
+                setErrorCompra(deleteError.message);
+                return;
+            }
+    
+            // Insertar los productos actuales de productosLista en la base de datos
+            const productosAInsertar = productosLista.map(item => ({
+                id_lista: id_lista,
+                id_producto: item.Productos.id,
+                cantidad: item.cantidad
+            }));
+    
+            const { error: insertError } = await supabaseConexion
+                .from('Listas_Productos')
+                .insert(productosAInsertar);
+    
+            if (insertError) {
+                setErrorCompra(insertError.message);
+            }
+        } catch (error) {
+            setErrorCompra(error.message);
+        }
+    };
 
     const datosProveer = {
         errorCompra,
         gestionarCantidad,
         obtenerProductosLista,
         productosLista,
-        borrarProductoLista
+        borrarProductoLista,
+        insertarProductoLista,
+        quitarProductoLista,
+        confirmarCambios
     };
 
     return (

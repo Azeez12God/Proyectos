@@ -61,7 +61,7 @@
     transition: transform 0.2s ease-in-out;
 }
 
-#producto-quitar{
+#producto-quitar, #producto-quitar-lista{
     width: 10px;
     height: 10px;
 }

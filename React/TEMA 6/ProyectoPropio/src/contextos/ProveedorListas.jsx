@@ -1,11 +1,12 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { supabaseConexion } from '../config/supabase.js';
+import { generarUuidAleatorio } from '../bibliotecas/biblioteca.js';
+import { useNavigate } from 'react-router-dom';
 
 const contextoListas = createContext();
 const ProveedorListas = ({children}) => {
     const errorListaInicial = "";
     const listadoInicial = [];
-    const productosListaInicial = [];
     const listaInicial = {
         id: 0,
         fecha_creacion: "",
@@ -16,6 +17,8 @@ const ProveedorListas = ({children}) => {
     const [errorLista, setErrorLista] = useState(errorListaInicial);
     const [listadoListas, setListadoListas] = useState(listadoInicial);
     const [lista, setLista] = useState(listaInicial);
+
+    const navegar = useNavigate(null);
 
     const obtenerListas = async () => { 
         try{
@@ -47,6 +50,42 @@ const ProveedorListas = ({children}) => {
         }
     };
 
+    const actualizarLista = (evento) => {
+        const {name, value} = evento.target;
+        setLista({...lista, [name]: value});
+    };
+
+    const insertarLista = async (usuario) => {
+        try{
+            lista.id = generarUuidAleatorio();
+            lista.id_propietario = usuario.id;
+            const {fecha_creacion, ...listaSinFecha} = lista;
+
+            const {error} = await supabaseConexion.from('Listas').insert(listaSinFecha);
+            if(error){
+                setErrorLista(error.message);
+            }
+            else{
+                obtenerListas();
+                navegar('/listas');
+            }
+        }
+        catch(error){
+            setErrorLista(error.message);
+        }
+    };
+
+    const borrarLista = async (id) => {
+        try{
+            const {error, count} = await supabaseConexion.from('Listas').delete().eq('id', id);
+            if(error){setErrorLista(error.message);}
+            else if(count===0){setErrorLista(`No se ha podido borrar la lista.`);}
+            else{obtenerListas();}
+        }
+        catch(error){
+            setErrorLista(error.message);
+        }
+    }
 
     useEffect(()=>{
         obtenerListas();
@@ -56,7 +95,10 @@ const ProveedorListas = ({children}) => {
         errorLista,
         listadoListas,
         obtenerLista,
-        lista
+        lista,
+        actualizarLista,
+        insertarLista,
+        borrarLista
     };
     return (
         <contextoListas.Provider value={datosProveer}>

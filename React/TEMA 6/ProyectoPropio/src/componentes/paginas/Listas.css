@@ -14,3 +14,23 @@
 .listas-listado a:hover {
   cursor: pointer;
 }
+
+.listas-funcionalidades {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0; /* Añadir margen superior e inferior */
+}
+
+.listas-navegacion a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.listas-navegacion a:hover {
+  background-color: #0056b3;
+}

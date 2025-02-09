@@ -7,3 +7,11 @@
     max-height: 800px; /* Ajusta el tamaño máximo según tus necesidades */
     overflow-y: auto; /* Habilita el scroll vertical */
 }
+
+.lista-detalle h2 {
+    margin-top: 20px; /* Añade espacio superior */
+    margin-bottom: 20px; /* Añade espacio inferior */
+    font-size: 2em; /* Ajusta el tamaño de la fuente */
+    color: #333; /* Color del texto */
+    text-align: center; /* Centra el texto */
+}

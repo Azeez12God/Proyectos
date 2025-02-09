@@ -31,6 +31,7 @@ const ProveedorProductos = ({children}) => {
             const {data, error} = await supabaseConexion.from("Productos").select("*").order("created_at", {ascending: true});
             setListadoProductos(data);
             setProductosFiltrados(data);
+            setProducto(productoInicial);
         }
         catch(error){
             setErrorProductos(error.message);

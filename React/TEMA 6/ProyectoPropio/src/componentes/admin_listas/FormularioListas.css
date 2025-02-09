@@ -1,0 +1,50 @@
+.formularioListas-contenedor {
+    background-color: #fff;
+    padding: 40px; /* Más espacio interior */
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Esquinas más redondeadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más visible */
+    margin: 40px auto; /* Más espacio arriba y abajo */
+    max-width: 600px; /* Limitar el ancho */
+    width: 90%; /* Hacerlo responsivo */
+}
+
+.formularioListas-contenedor label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 14px; /* Aumentar tamaño de fuente */
+}
+
+.formularioListas-contenedor input {
+    width: 100%;
+    padding: 15px; /* Espacio interior más amplio */
+    margin-bottom: 20px; /* Más espacio entre campos */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px; /* Texto más grande */
+}
+
+.formularioListas-contenedor button {
+    width: 100%;
+    padding: 15px; /* Botón más grande */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px; /* Texto del botón más grande */
+    font-weight: bold;
+}
+
+.formularioListas-contenedor button:hover {
+    background-color: #0056b3;
+}
+
+.titulo-insertar {
+    margin-top: 20px; /* Añade espacio superior */
+    margin-bottom: 20px; /* Añade espacio inferior */
+    font-size: 2em; /* Ajusta el tamaño de la fuente */
+    color: #333; /* Color del texto */
+    text-align: center; /* Centra el texto */
+}

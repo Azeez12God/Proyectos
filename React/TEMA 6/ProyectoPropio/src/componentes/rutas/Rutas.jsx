@@ -8,7 +8,8 @@ import InsertarProducto from '../admin_productos/InsertarProducto.jsx'
 import EditarProducto from '../admin_productos/EditarProducto.jsx'
 import Listas from '../paginas/Listas.jsx'
 import ListaDetalle from '../paginas/ListaDetalle.jsx'
-import AgregarProductos from '../listas_productos/AgregarProductos.jsx'
+import AgregarProductos from '../paginas/AgregarProductos.jsx'
+import InsertarLista from '../admin_listas/InsertarLista.jsx'
 
 const Rutas = () => {
     return (
@@ -22,6 +23,7 @@ const Rutas = () => {
                 <Route path='/listas' element={<Listas/>}/>
                 <Route path='/listas/:id' element={<ListaDetalle/>}/>
                 <Route path='/listas/agregarProductos' element={<AgregarProductos/>}/>
+                <Route path='/insertar_lista' element={<InsertarLista/>}/>
                 <Route path='*' element={<Error/>} />
             </Routes>
         </>
