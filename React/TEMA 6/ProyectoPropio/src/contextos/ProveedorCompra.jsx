@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react'
 import { supabaseConexion } from '../config/supabase';
-import useProveedorProductos from '../componentes/hooks/useProveedorProductos.js';
+import { useNavigate } from 'react-router-dom';
 
 const contextoCompra = createContext();
 const ProveedorCompra = ({children}) => {
@@ -10,6 +10,8 @@ const ProveedorCompra = ({children}) => {
 
     const [errorCompra, setErrorCompra] = useState(errorCompraInicial);
     const [productosLista, setProductosLista] = useState(productosListaInicial);
+
+    const navegar = useNavigate(null);
 
     const gestionarCantidad = async (sumar, id_producto, id_lista) => {
         try {
@@ -147,6 +149,10 @@ const ProveedorCompra = ({children}) => {
     
             if (insertError) {
                 setErrorCompra(insertError.message);
+            }
+
+            else{
+                navegar(`/listas/${id_lista}`);
             }
         } catch (error) {
             setErrorCompra(error.message);

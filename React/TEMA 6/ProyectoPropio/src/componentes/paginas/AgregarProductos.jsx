@@ -5,7 +5,6 @@ import ListaProductosLista from '../listas_productos/ListaProductosLista.jsx';
 import useProveedorProductos from '../hooks/useProveedorProductos.js';
 import useProveedorCompra from '../hooks/useProveedorCompra.js';
 import useProveedorListas from '../hooks/useProveedorListas.js';
-import { useNavigate } from 'react-router-dom';
 
 const AgregarProductos = () => {
     const {obtenerProducto, producto} = useProveedorProductos();
@@ -13,8 +12,6 @@ const AgregarProductos = () => {
     const {lista} = useProveedorListas();
 
     const [gestionarProductos, setGestionarProductos] = useState(false);
-
-    const navegar = useNavigate(null);
 
     const manejarClic = (evento) => {
         if(evento.target.classList.contains('producto-agregar-lista')){
@@ -31,7 +28,6 @@ const AgregarProductos = () => {
 
         if(evento.target.classList.contains('agregar-productos-confirmar')){
             confirmarCambios(lista.id);
-            navegar(`/listas/${lista.id}`);
         }
     };
 
