@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
-import { contextoProductos } from '../../contextos/ProveedorProductos'
+import React from 'react'
+import useProveedorProductos from '../hooks/useProveedorProductos';
 
 const ListadoEstadisticas = () => {
-    const {productosFiltrados} = useContext(contextoProductos);
+    const {productosFiltrados} = useProveedorProductos();
 
     const calcularPrecioMedio = (productos) => {   
         let sumaPrecios = 0;

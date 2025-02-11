@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
-import { contextoSesion } from '../../contextos/ProveedorSesion.jsx'
+import React from 'react'
 import { Link } from 'react-router-dom';
 import './Menu.css'
+import useProveedorSesion from '../hooks/useProveedorSesion';
 
 const Menu = () => {
-    const {sesionIniciada} = useContext(contextoSesion);
+    const {sesionIniciada} = useProveedorSesion();
     return (
         <>
             <nav id='menu'>

@@ -1,14 +1,14 @@
-import React, { useContext, useState } from 'react'
+import React from 'react'
 import './Producto.css'
-import { contextoProductos } from '../../contextos/ProveedorProductos.jsx';
 import { useNavigate } from 'react-router-dom';
 import ProductoInfo from '../producto/ProductoInfo.jsx';
 import ProductoBotones from '../producto/ProductoBotones.jsx';
 import ProductoListaBotones from '../producto/ProductoListaBotones.jsx';
+import useProveedorProductos from '../hooks/useProveedorProductos.js';
 
 const Producto = ({datos, agregarProducto}) => {
     const {id, nombre} = datos;
-    const {borrarProducto, obtenerProducto} = useContext(contextoProductos);
+    const {borrarProducto, obtenerProducto} = useProveedorProductos();
 
     const navegar = useNavigate(null);
 

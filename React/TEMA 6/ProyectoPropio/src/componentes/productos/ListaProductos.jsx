@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
-import { contextoProductos } from '../../contextos/ProveedorProductos.jsx'
+import React from 'react'
 import Producto from './Producto.jsx';
 import Errores from '../estructura/Errores.jsx';
+import useProveedorProductos from '../hooks/useProveedorProductos.js';
 
 const ListaProductos = ({agregarProducto}) => {
-    const {productosFiltrados} = useContext(contextoProductos);
+    const {productosFiltrados} = useProveedorProductos();
 
     return (
         <>

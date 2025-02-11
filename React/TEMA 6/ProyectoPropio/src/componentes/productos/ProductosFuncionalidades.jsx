@@ -1,12 +1,12 @@
-import React, { useContext } from 'react'
-import { contextoProductos } from '../../contextos/ProveedorProductos';
+import React from 'react'
 import './ProductosFuncionalidades.css'
 import { Link } from 'react-router-dom';
+import useProveedorProductos from '../hooks/useProveedorProductos';
 
 const ProductosFuncionalidades = () => {
     const {cargarProductos, filtrarProductosNombre, filtrarProductosPrecio, filtrarProductosPeso, 
         ordenarProductosNombre, ordenarProductosPeso, ordenarProductosPrecio
-    } = useContext(contextoProductos);
+    } = useProveedorProductos();
 
     return (
         <>

@@ -14,12 +14,14 @@ const ProveedorListas = ({children}) => {
         nombre: ""
     };
 
+    // Estados de la lista.
     const [errorLista, setErrorLista] = useState(errorListaInicial);
     const [listadoListas, setListadoListas] = useState(listadoInicial);
     const [lista, setLista] = useState(listaInicial);
 
     const navegar = useNavigate(null);
 
+    // Función para obtener las listas de la base de datos.
     const obtenerListas = async () => { 
         try{
             const {data , error} = await supabaseConexion.from('Listas').select('*'); // Recordar policy en Supabase.
@@ -35,6 +37,7 @@ const ProveedorListas = ({children}) => {
         }
     };
 
+    // Función para obtener la lista seleccionada.
     const obtenerLista = async (id) => {
         try{
             const {data, error} = await supabaseConexion.from('Listas').select('*').eq('id', id);
@@ -50,11 +53,13 @@ const ProveedorListas = ({children}) => {
         }
     };
 
+    // Función para actualizar el estado de lista en el formulario.
     const actualizarLista = (evento) => {
         const {name, value} = evento.target;
         setLista({...lista, [name]: value});
     };
 
+    // Función para insertar la lista en la base de datos.
     const insertarLista = async (usuario) => {
         try{
             lista.id = generarUuidAleatorio();
@@ -75,6 +80,7 @@ const ProveedorListas = ({children}) => {
         }
     };
 
+    // Función para borrar la lista en la base de datos.
     const borrarLista = async (id) => {
         try{
             const {error, count} = await supabaseConexion.from('Listas').delete().eq('id', id);
@@ -87,6 +93,7 @@ const ProveedorListas = ({children}) => {
         }
     }
 
+    // Efecto para obtener las listas al montar el componente.
     useEffect(()=>{
         obtenerListas();
     }, [])

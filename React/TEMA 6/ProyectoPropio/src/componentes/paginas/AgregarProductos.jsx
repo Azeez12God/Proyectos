@@ -7,21 +7,21 @@ import useProveedorCompra from '../hooks/useProveedorCompra.js';
 import useProveedorListas from '../hooks/useProveedorListas.js';
 
 const AgregarProductos = () => {
-    const {obtenerProducto, producto} = useProveedorProductos();
+    const {obtenerProductoInsertar} = useProveedorProductos();
     const {insertarProductoLista, quitarProductoLista, confirmarCambios} = useProveedorCompra();
     const {lista} = useProveedorListas();
 
     const [gestionarProductos, setGestionarProductos] = useState(false);
 
-    const manejarClic = (evento) => {
+    const manejarClic = async (evento) => {
         if(evento.target.classList.contains('producto-agregar-lista')){
-            obtenerProducto(evento.target.closest('.producto-contenedor').id);
-            producto.nombre && insertarProductoLista(producto);
+            const producto = await obtenerProductoInsertar(evento.target.closest('.producto-contenedor').id);
+            insertarProductoLista(producto);
             setGestionarProductos(true);
         }
 
         if(evento.target.classList.contains('producto-quitar-lista')){
-            obtenerProducto(evento.target.closest('.producto-contenedor').id);
+            const producto = await obtenerProductoInsertar(evento.target.closest('.producto-contenedor').id);
             quitarProductoLista(producto);
             setGestionarProductos(true);
         }
@@ -33,15 +33,24 @@ const AgregarProductos = () => {
 
     return (
         <>
-            <div className='agregar-productos-contenedor' onClick={(e)=>{manejarClic(e)}}>
-                <div className='agregar-productos-lista-productos'>
-                    <ListaProductos agregarProducto={true}/>
-                </div>
-                <div className='agregar-productos-lista-lista'>
-                    <ListaProductosLista agregando={true} agregarProducto={true}/>
+            <div className='agregar-productos-contenedor' onClick={(e) => manejarClic(e)}>
+                <div className='agregar-productos-seccion'>
+                    <h2>Lista de productos</h2>
+                    <div className='agregar-productos-lista-productos'>
+                        <ListaProductos agregarProducto={true}/>
+                    </div>
                 </div>
 
-                <button disabled={!gestionarProductos} className='agregar-productos-confirmar'>Confirmar</button>
+                <div className='agregar-productos-seccion'>
+                    <h2>Tu lista de la compra</h2>
+                    <div className='agregar-productos-lista-lista'>
+                        <ListaProductosLista agregando={true} agregarProducto={true}/>
+                    </div>
+                </div>
+
+                <button disabled={!gestionarProductos} className='agregar-productos-confirmar'>
+                    Confirmar
+                </button>
             </div>
         </>
     )

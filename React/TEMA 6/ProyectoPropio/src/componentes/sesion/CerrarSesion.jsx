@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
-import { contextoSesion } from '../../contextos/ProveedorSesion.jsx';
+import React from 'react'
 import './CerrarSesion.css'
+import useProveedorSesion from '../hooks/useProveedorSesion.js';
 
 const CerrarSesion = () => {
-    const {cerrarSesion} = useContext(contextoSesion);
+    const {cerrarSesion} = useProveedorSesion();
     return (
         <>
             <div className='cerrarsesion_contenedor'>

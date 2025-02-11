@@ -3,7 +3,7 @@ import { supabaseConexion } from '../config/supabase.js';
 import { useNavigate } from 'react-router-dom';
 import { generarUuidAleatorio } from '../bibliotecas/biblioteca.js';
 
-// Crear contexto de productos
+// Crear contexto de productos.
 const contextoProductos = createContext();
 
 const ProveedorProductos = ({children}) => {
@@ -17,7 +17,7 @@ const ProveedorProductos = ({children}) => {
         imagen: ""
     };
 
-    // Estados para productos y errores
+    // Estados para productos y errores.
     const [listadoProductos, setListadoProductos] = useState(listadoInicial);
     const [errorProductos, setErrorProductos] = useState(errorInicial);
     const [productosFiltrados, setProductosFiltrados] = useState([]);
@@ -25,7 +25,7 @@ const ProveedorProductos = ({children}) => {
 
     const navegar = useNavigate(null);
 
-    // Obtener productos de la base de datos
+    // Obtener productos de la base de datos.
     const obtenerListado = async () => {
         try{
             const {data, error} = await supabaseConexion.from("Productos").select("*").order("created_at", {ascending: true});
@@ -38,10 +38,10 @@ const ProveedorProductos = ({children}) => {
         }
     };
 
-    // Cargar todos los productos
+    // Cargar todos los productos.
     const cargarProductos = () => { setProductosFiltrados(listadoProductos)};
 
-    // Filtrar productos por nombre
+    // Filtrar productos por nombre.
     const filtrarProductosNombre = (nombre) => {
         let filtrarNombre = listadoProductos.filter((producto)=>{
             return producto.nombre.toLowerCase().includes(nombre.toLowerCase());
@@ -50,7 +50,7 @@ const ProveedorProductos = ({children}) => {
         setProductosFiltrados(filtrarNombre);
     }
 
-    // Filtrar productos por precio
+    // Filtrar productos por precio.
     const filtrarProductosPrecio = (precio) => {
         if(precio === ""){return setProductosFiltrados(listadoProductos);}
         else {
@@ -62,7 +62,7 @@ const ProveedorProductos = ({children}) => {
         }
     }
 
-    // Filtrar productos por peso
+    // Filtrar productos por peso.
     const filtrarProductosPeso = (peso) => {
         if(peso === ""){return setProductosFiltrados(listadoProductos);}
         else {
@@ -74,7 +74,7 @@ const ProveedorProductos = ({children}) => {
         }
     }
 
-    // Ordenar productos por nombre
+    // Ordenar productos por nombre.
     const ordenarProductosNombre = () => {
         let ordenarPorNombre = [...listadoProductos].sort((a, b)=>{
             return a.nombre.toLowerCase().localeCompare(b.nombre.toLowerCase())
@@ -83,7 +83,7 @@ const ProveedorProductos = ({children}) => {
         setProductosFiltrados(ordenarPorNombre);
     }
 
-    // Ordenar productos por precio
+    // Ordenar productos por precio.
     const ordenarProductosPrecio = () => {
         let ordenarPorPrecio = [...listadoProductos].sort((a,b)=>{
             return a.precio - b.precio
@@ -92,7 +92,7 @@ const ProveedorProductos = ({children}) => {
         setProductosFiltrados(ordenarPorPrecio);
     }
 
-    // Ordenar productos por peso
+    // Ordenar productos por peso.
     const ordenarProductosPeso = () => {
         let ordenarPorPeso = [...listadoProductos].sort((a,b)=>{
             return a.peso - b.peso
@@ -107,6 +107,7 @@ const ProveedorProductos = ({children}) => {
         setProducto({ ...producto, [name]: value });
     };
 
+    // Insertar producto en la base de datos.
     const insertarProducto = async () => {
         try{
             producto.id = generarUuidAleatorio();
@@ -123,6 +124,7 @@ const ProveedorProductos = ({children}) => {
         }
     };
 
+    // Borrar producto de la base de datos.
     const borrarProducto = async (id) => {
         try{
             const {error, count} = await supabaseConexion.from("Productos").delete().eq("id", id);
@@ -136,6 +138,7 @@ const ProveedorProductos = ({children}) => {
         }
     };
 
+    // Editar el producto en la base de datos.
     const editarProducto = async () => {
         try{
             const {error} = await supabaseConexion.from("Productos").update(producto).eq("id", producto.id);
@@ -153,6 +156,7 @@ const ProveedorProductos = ({children}) => {
         }
     };
 
+    // Obtener el producto de la base de datos.
     const obtenerProducto = async (id) => {
         setErrorProductos(errorInicial);
         try{
@@ -166,6 +170,22 @@ const ProveedorProductos = ({children}) => {
             setErrorProductos(error.message);
         }
     };
+
+    // Obtener el producto a insertar en la lista.
+    const obtenerProductoInsertar = async (id) => {
+        setErrorProductos(errorInicial);
+        try{
+            const {data, error} = await supabaseConexion.from("Productos").select("*").eq("id", id);
+            if(error){ setErrorProductos(error.message);}
+            else{
+                return data[0];
+            }
+        }
+        catch(error){
+            setErrorProductos(error.message);
+        }
+    };
+
 
     // Datos a proveer en el contexto
     const datosProveer = {
@@ -184,10 +204,11 @@ const ProveedorProductos = ({children}) => {
         insertarProducto,
         borrarProducto,
         editarProducto,
-        obtenerProducto
+        obtenerProducto,
+        obtenerProductoInsertar
     };
 
-    // Efecto para cargar productos al montar el componente
+    // Efecto para cargar productos al montar el componente.
     useEffect(()=>{
         obtenerListado();
     }, [])

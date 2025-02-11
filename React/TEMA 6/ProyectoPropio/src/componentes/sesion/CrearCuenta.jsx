@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import { contextoSesion } from '../../contextos/ProveedorSesion.jsx';
+import React from 'react';
+import useProveedorSesion from '../hooks/useProveedorSesion';
 
 const CrearCuenta = () => {
-    const { crearCuenta, actualizarDato } = useContext(contextoSesion);
+    const { crearCuenta, actualizarDato } = useProveedorSesion();
 
     return (
         <div className="cuentaUsuario">

@@ -1,13 +1,13 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import ProductosFuncionalidades from '../productos/ProductosFuncionalidades.jsx'
 import ListaProductos from '../productos/ListaProductos.jsx'
 import './Productos.css'
 import ListadoEstadisticas from '../productos/ListadoEstadisticas.jsx'
-import { contextoProductos } from '../../contextos/ProveedorProductos.jsx'
 import Errores from '../estructura/Errores.jsx'
+import useProveedorProductos from '../hooks/useProveedorProductos.js'
 
 const Productos = () => {
-    const {errorProducto} = useContext(contextoProductos);
+    const {errorProducto} = useProveedorProductos();
     return (
         <>
             <div className='productos-contenedor'>
